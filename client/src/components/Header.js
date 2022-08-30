@@ -1,3 +1,5 @@
+import healthcare from "../assets/healthcare.png";
+
 const styles = {
   container: {},
   header: {
@@ -20,8 +22,6 @@ const styles = {
     color: "#ffffff",
   },
 };
-
-import healthcare from "/src/assets/healthcare.png";
 
 const Header = (props) => {
   return (

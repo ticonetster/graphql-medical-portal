@@ -1,3 +1,5 @@
+import loginpatient from "../assets/login_patient.png";
+
 const styles = {
   container: {
     paddingRight: "15px",
@@ -5,7 +7,7 @@ const styles = {
     marginRight: "auto",
     marginLeft: "auto",
     width: "100%",
-    color: "pink",
+    color: "green",
   },
   row: {
     display: "flex",
@@ -25,9 +27,6 @@ const styles = {
   },
 };
 
-// import React from "react";
-// import { ReactDOM } from "react-dom";
-
 const Login = (props) => {
   return (
     <div style={styles.container}>
@@ -37,7 +36,7 @@ const Login = (props) => {
             <form id="login-form" class="card-body cardbody-color p-lg-5">
               <div class="text-center">
                 <img
-                  src="/image/login_patient.png"
+                  src={loginpatient}
                   class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
                   width="150px"
                   alt="profile"

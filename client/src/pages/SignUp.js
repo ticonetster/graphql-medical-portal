@@ -1,3 +1,5 @@
+import singuppatient  from '../assets/signup_patient.png';
+
 const styles = {
     container: {
       paddingRight: "15px",
@@ -25,7 +27,7 @@ const styles = {
     },
   };
 
-import singuppatient  from '/src/assets/signup_patient.png';
+
 
 
 const SignUp =(props) => {
