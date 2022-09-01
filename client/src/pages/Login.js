@@ -37,6 +37,19 @@ const styles = {
     backgroundColor: "#9fafdf",
     padding: "15px 15px 15px 15px",
   },
+
+  epbutton: {
+    display: "block",
+    width: "100%",
+    height: "calc(1.5em + .75rem + 2px)",
+    padding: "0.375rem .75rem",
+    fontsize: "1rem",
+    fontWeight: "400",
+    lineHeight: "1.5",
+    backgroundClip: "padding-box",
+    borderRadius: ".25rem",
+    transition: "border-color .15s ease-in-out,box-shadow .15s ease-in-out",
+  },
 };
 
 const Login = (props) => {
@@ -58,7 +71,7 @@ const Login = (props) => {
                   alt="profile"
                 />
               </div>
-              <div class="mb-3">
+              <div class="mb-3" style={styles.epbutton}>
                 <input
                   type="text"
                   class="form-control"
@@ -67,7 +80,7 @@ const Login = (props) => {
                   placeholder="Email"
                 />
               </div>
-              <div class="mb-3">
+              <div class="mb-3" style={styles.epbutton}>
                 <input
                   type="password"
                   class="form-control"
