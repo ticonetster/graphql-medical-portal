@@ -1,9 +1,10 @@
-import "./App.css";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import Header from "./components/Header";
 import Login from "./pages/Login";
-// import Signup from "./pages/Signup";
-// import Home from "./pages/Home";
+import Home from "./pages/Home";
 
 const client = new ApolloClient({
   uri: "/graphql",
@@ -16,9 +17,12 @@ function App() {
       <div className="health-app">
         <Router>
           <div className="container">
+            <Header />
             <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/test/" element={<placeholder />} />
+              <Route path="/">
+                <Route index element={<Login />} />
+                <Route path="home" element={<Home />}></Route>
+              </Route>
             </Routes>
           </div>
         </Router>

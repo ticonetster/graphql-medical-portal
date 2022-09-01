@@ -1,3 +1,4 @@
+import React from "react";
 import healthcare from "../assets/healthcare.png";
 
 const styles = {
@@ -41,3 +42,5 @@ const Header = (props) => {
     </header>
   );
 };
+
+export default Header;

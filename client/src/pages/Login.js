@@ -1,3 +1,5 @@
+import "../css/style.css";
+
 import loginpatient from "../assets/login_patient.png";
 
 const styles = {
@@ -7,13 +9,19 @@ const styles = {
     marginRight: "auto",
     marginLeft: "auto",
     width: "100%",
-    color: "green",
+    color: "black",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
   },
   row: {
     display: "flex",
     flexWrap: "wrap",
     marginRight: "-15px",
     marginLeft: "-15px",
+    justifyContent: "center",
+    marginTop: "200px",
+    marginBottom: "200px",
   },
   card: {
     position: "relative",
@@ -21,9 +29,13 @@ const styles = {
     flexDirection: "column",
     minWidth: "0",
     wordWrap: "break-word",
-    backgroundColor: "#fff",
+    backgroundColor: "#9fafdf",
     backgroundClip: "border-box",
     borderRadius: ".25rem",
+  },
+  cardbody: {
+    backgroundColor: "#9fafdf",
+    padding: "15px 15px 15px 15px",
   },
 };
 
@@ -33,7 +45,11 @@ const Login = (props) => {
       <div class="row" style={styles.row}>
         <div class="col-md-6 offset-md-3">
           <div class="card my-5" style={styles.card}>
-            <form id="login-form" class="card-body cardbody-color p-lg-5">
+            <form
+              id="login-form"
+              class="card-body cardbody-color p-lg-5"
+              style={styles.cardbody}
+            >
               <div class="text-center">
                 <img
                   src={loginpatient}
