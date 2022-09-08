@@ -1,17 +1,27 @@
 const path = require('path');
 const http = require("http");
 const express = require('express');
-const socketio = require("socket.io");
 const routes = require('./controllers');
+const socketio = require("socket.io");
 const formatMessage = require("./utils/messages");
+const { ApolloServer } = require('apollo-server-express');
+
 const db = require("./config/connection");
 const routes = require('./routes');
 
+const { typeDefs, resolvers } = require('./schemas');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+const serverApollo = new ApolloServer({
+  typeDefs,
+  resolvers
+});
+
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 //HERE ON IS SOCKET.IO
 const {
@@ -78,6 +88,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routes);
 
+const startApolloServer = async (typeDefs, resolvers) => {
+  await serverApollo.start();
+};
+
 db.once('open', () => {
-    app.listen(PORT, () => console.log(`Now listening on localhost ${PORT})`));
+  app.listen(PORT, () => {
+    console.log(`API server running on port ${PORT}!`);
+    console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+  });
 });
+
+startApolloServer(typeDefs, resolvers);
