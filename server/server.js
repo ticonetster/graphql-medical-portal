@@ -5,6 +5,8 @@ const socketio = require("socket.io");
 const routes = require('./controllers');
 const formatMessage = require("./utils/messages");
 const db = require("./config/connection");
+const routes = require('./routes');
+
 
 const PORT = process.env.PORT || 3001;
 const app = express();
