@@ -1,11 +1,6 @@
 const { Schema ,model } = require('mongoose');
-
+//deleted id will create default in mongooseDB as _id
 const schedulesSchema = new Schema({
-    id: {
-        type: String,
-        required: true,
-        unique: true
-    },
     days: {
         type: Number,
         required: true

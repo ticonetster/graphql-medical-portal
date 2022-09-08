@@ -1,11 +1,6 @@
 const { Schema ,model } = require('mongoose');
-
+//deleted id will create default in mongooseDB as _id
 const doctorsSchema = new Schema({
-    id: {
-        type: Number,
-        required: true,
-        unique: true
-    },
     name: {
         type: String,
         required: true
@@ -21,7 +16,13 @@ const doctorsSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    appointments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'appointments',
+        }
+    ],
 });
 
 const doctors = model('doctors', doctorsSchema);
