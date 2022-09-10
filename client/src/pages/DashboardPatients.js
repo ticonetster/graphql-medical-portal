@@ -29,9 +29,9 @@ const styles = {
   },
 };
 
-const Home = (props) => {
+const DashboardPatients = (props) => {
   return (
-    <div>Hello </div>
+    <div>Patient Dashboard </div>
     // <div className={styles.container}>
     //   <div className={styles.content}>
     //     <div className={styles.left}>
@@ -110,4 +110,4 @@ const Home = (props) => {
   );
 };
 
-export default Home;
+export default DashboardPatients;
