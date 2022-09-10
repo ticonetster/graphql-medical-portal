@@ -1,10 +1,11 @@
-import gql from 'graphql-tag';
+// import gql from 'graphql-tag';
+import { gql } from '@apollo/client';
 
 export const LOGIN_PATIENTS = gql`
-    mutation loginPatients($email: String!, $password: String!) {
+    mutation LoginPatients($email: String!, $password: String!) {
         loginPatients(email: $email, password: $password) {
             token
-            patients {
+            patient {
                 _id
                 username
                 name
@@ -15,10 +16,10 @@ export const LOGIN_PATIENTS = gql`
 `;
 
 export const ADD_PATIENTS = gql`
-    mutation addPatients($username:String!, $email:String!, $password: String!){
+    mutation AddPatients($username:String!, $email:String!, $password: String!) {
         addPatients(username: $username, email:$email, password:$password) {
             token
-            user {
+            patient {
                 _id
                 username
                 name
@@ -28,10 +29,10 @@ export const ADD_PATIENTS = gql`
     }
 `;
 export const LOGIN_DOCTORS = gql`
-    mutation loginDoctors($email: String!, $password: String!) {
+    mutation LoginDoctors($email: String!, $password: String!) {
         loginDoctors(email: $email, password: $password) {
             token
-            doctors {
+            doctor {
                 _id
                 username
                 name
@@ -42,10 +43,10 @@ export const LOGIN_DOCTORS = gql`
 `;
 
 export const ADD_DOCTORS = gql`
-    mutation addDoctors($username:String!, $email:String!, $password: String!){
+    mutation AddDoctors($username:String!, $email:String!, $password: String!){
         addDoctors(username: $username, email:$email, password:$password) {
             token
-            doctors {
+            doctor {
                 _id
                 username
                 name

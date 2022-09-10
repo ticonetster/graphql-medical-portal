@@ -10,7 +10,7 @@ const typeDefs = gql`
     
     type AuthPatients {
         token: ID!
-        user: Patients
+        patient: Patients
     }
 
     type Doctors {
@@ -22,14 +22,26 @@ const typeDefs = gql`
 
     type AuthDoctors {
         token: ID!
-        user: Doctors
+        doctor: Doctors
+    }
+
+    type User {
+        _id: String
+        email: String
     }
 
     type Query {
-        _dummy: String
+        test: String
+        testUser: Patients
+        currentUser: User
+        me: Patients
+        patients: [Patients]
+        patient(username: String!): Patients
     }
-    
+
     type Mutation {
+        login(email: String!, password: String!): Patients
+        signup(email: String!, password: String!): Patients
         loginPatients(email: String!, password: String!): AuthPatients
         addPatients(username: String!, email: String!, password: String!): AuthPatients 
         loginDoctors(email: String!, password: String!): AuthDoctors

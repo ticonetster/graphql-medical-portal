@@ -7,4 +7,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/medical-portal'
   useFindAndModify: false,
 });
 
+console.log(`\n ----------- Mongoose database connected! -----------`)
+
 module.exports = mongoose.connection;

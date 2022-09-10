@@ -9,11 +9,11 @@ const patientsSchema = new Schema(
         },
         name: {
             type: String,
-            required: true
+            default: null
         },
         gender: {
             type: String,
-            required: true
+            default: null
         },
         email: {
             type: String,
@@ -23,7 +23,7 @@ const patientsSchema = new Schema(
         },
         address: {
             type: String,
-            required: true
+            default: null
         },
         password: {
             type: String,
