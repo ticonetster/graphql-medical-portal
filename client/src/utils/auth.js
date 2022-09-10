@@ -38,8 +38,9 @@ class AuthService {
         
         if (doctor){
             window.location.assign('/doctors-dashboard');
+        } else {
+            window.location.assign('/patients-dashboard');
         }
-        window.location.assign('/patients-dashboard');
 
     }
 

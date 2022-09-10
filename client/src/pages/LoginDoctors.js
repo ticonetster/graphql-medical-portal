@@ -37,10 +37,8 @@ const LoginDoctor = () => {
             const { data } = await loginDoctors({
                 variables: { ...userFormData }
             });
-            console.log(data);
-
-            // Auth.login(data.loginDoctors.token);
-            Auth.login(data.loginDoctors.token, data.loginDoctors.patient.doctor);
+            console.log("loginDoctors::: ", data)
+            Auth.login(data.loginDoctors.token, true);
 
         } catch (e) {
             console.error(e);

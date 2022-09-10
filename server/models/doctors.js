@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
-//deleted id will create default in mongooseDB as _id
+const bcrypt = require('bcrypt');
+
 const doctorsSchema = new Schema(
     {
         username: {
@@ -29,11 +30,7 @@ const doctorsSchema = new Schema(
                 type: Schema.Types.ObjectId,
                 ref: 'appointments',
             }
-        ],
-        doctor: {
-            type: Boolean,
-            default: true
-        },
+        ]
     },
     // set this to use virtual below
     {

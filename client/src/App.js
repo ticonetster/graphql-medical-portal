@@ -51,7 +51,7 @@ function App() {
                     <Route exact path='/doctors-login' component={LoginDoctors} />
                     <Route exact path='/doctors-signup' component={SignupDoctors} />
                     <Route exact path='/doctors-dashboard' component={DashboardDoctors} />
-                    <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
+                    {/* <Route render={() => <h1 className='display-2'>Wrong page!</h1>} /> */}
                     {/* <Route index element={<Login />} /> */}
                     {/* <Route index element={<LoginPatients />} />
                     <Route path="doctors-dashboard" element={<DashboardDoctors />} />

@@ -36,12 +36,12 @@ const typeDefs = gql`
         currentUser: User
         me: Patients
         patients: [Patients]
+        doctors: [Doctors]
         patient(username: String!): Patients
+        doctor(username: String!): Doctors
     }
 
     type Mutation {
-        login(email: String!, password: String!): Patients
-        signup(email: String!, password: String!): Patients
         loginPatients(email: String!, password: String!): AuthPatients
         addPatients(username: String!, email: String!, password: String!): AuthPatients 
         loginDoctors(email: String!, password: String!): AuthDoctors

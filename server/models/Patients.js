@@ -40,11 +40,7 @@ const patientsSchema = new Schema(
                 type: Schema.Types.ObjectId,
                 ref: 'doctors',
             }
-        ],
-        doctor: {
-            type: Boolean,
-            default: false
-        },
+        ]
     },
     // set this to use virtual below
     {

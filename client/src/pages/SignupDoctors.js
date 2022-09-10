@@ -33,12 +33,13 @@ const SignupDoctors = () => {
         }
 
         try {
+            console.log("DOCTOR: HITTING THIS STILL DEBUG")
             const { data } = await addDoctors({
                 variables: { ...userFormData }
             });
-            console.log(data);
-            // Auth.login(data.addDoctors.token);
-            Auth.login(data.addDoctors.token, data.addDoctors.patient.doctor);
+
+            console.log("addDoctors::: ", data)
+            Auth.login(data.addDoctors.token, true);
 
         } catch (err) {
             console.error(err);
@@ -71,15 +72,6 @@ const SignupDoctors = () => {
                                     width="200px"
                                 />
                             </div>
-                            {/* <div className="mb-3" style={SignupStyles.epbutton}>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id="name-signup"
-                                    aria-describedby="nameHelp"
-                                    placeholder="Name"
-                                />
-                            </div> */}
                             <Form.Group>
                                 {/* <Form.Label htmlFor='username'>Username</Form.Label> */}
                                 <Form.Control
@@ -92,15 +84,6 @@ const SignupDoctors = () => {
                                 />
                                 <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
                             </Form.Group>
-                            {/* <div className="mb-3" style={SignupStyles.epbutton}>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id="email-signup"
-                                    aria-describedby="emailHelp"
-                                    placeholder="Email"
-                                />
-                            </div> */}
                             <Form.Group>
                                 {/* <Form.Label htmlFor='email'>Email</Form.Label> */}
                                 <Form.Control
@@ -113,14 +96,6 @@ const SignupDoctors = () => {
                                 />
                                 <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
                             </Form.Group>
-                            {/* <div className="mb-3" style={SignupStyles.epbutton}>
-                                <input
-                                    type="password"
-                                    className="form-control"
-                                    id="password-signup"
-                                    placeholder="Password"
-                                />
-                            </div> */}
                             <Form.Group>
                                 <Form.Label htmlFor='password'>Password</Form.Label>
                                 <Form.Control
@@ -133,11 +108,6 @@ const SignupDoctors = () => {
                                 />
                                 <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
                             </Form.Group>
-                            {/* <div className="text-center">
-                                <button type="submit" className="btn btn-color px-5 mb-5 w-100">
-                                    Sign up
-                                </button>
-                            </div> */}
                             <Button
                                 disabled={!(userFormData.username && userFormData.email && userFormData.password)}
                                 type='submit'

@@ -16,7 +16,6 @@ const SignupForm = () => {
     const [showAlert, setShowAlert] = useState(false);
 
     const [addPatients] = useMutation(ADD_PATIENTS);
-    //console.log("addPatients: ", addPatients)
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -34,13 +33,11 @@ const SignupForm = () => {
         }
 
         try {
-            console.log("HITTING THIS STILL")
+            console.log("PATIENTS: HITTING THIS STILL DEBUG")
             const { data } = await addPatients({
                 variables: { ...userFormData }
             });
-            console.log(data);
-            // Auth.login(data.addUser.token);
-            Auth.login(data.addPatients.token, data.addPatients.patient.doctor);
+            Auth.login(data.addPatients.token, false);
 
         } catch (err) {
             console.error(err);
