@@ -4,6 +4,8 @@ import { Link, useLocation } from "react-router-dom";
 import "./navbar.css";
 import healthcare from "../assets/healthcare.png";
 
+import Auth from '../utils/auth';
+
 const NavBar = () => {
     const [open, setOpen] = useState(false);
     const [screenWidth, setScreenWidth] = useState(0);
@@ -78,7 +80,19 @@ const NavBar = () => {
                                 Contact
                             </Link>
                         </li>
-                        <li>
+                        
+                        {/* if user is logged in show logout button*/}
+                        {Auth.loggedIn() ? (
+                            <li>
+                                <Link 
+                                    to="/"
+                                    onClick={Auth.logout}
+                                >
+                                    Logout
+                                </Link>
+                            </li>
+                        ) : (
+                            <li>
                             <Link
                                 to="/doctors-login"
                                 onClick={handleClose}
@@ -87,6 +101,7 @@ const NavBar = () => {
                                 Doctors
                             </Link>
                         </li>
+                        )}
                     </ul>
                 </div>
             </div>

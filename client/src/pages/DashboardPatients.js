@@ -1,84 +1,137 @@
 import React from "react";
 
+import "../css/style.css";
+
+import appointments from "../assets/appointments.png";
+import addappointments from "../assets/add_appointments.png";
+import history from "../assets/history.png";
+import edit from "../assets/edit.png";
+
+const styles = {
+  container: {
+    paddingRight: "15px",
+    paddingLeft: "15px",
+    marginRight: "auto",
+    marginLeft: "auto",
+    width: "100%",
+    color: "black",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+  },
+  row: {
+    display: "flex",
+    flexWrap: "wrap",
+    marginRight: "-15px",
+    marginLeft: "-15px",
+    justifyContent: "center",
+    marginTop: "200px",
+    marginBottom: "200px",
+  },
+  card: {
+    position: "relative",
+    display: "flex",
+    flexDirection: "column",
+    minWidth: "0",
+    wordWrap: "break-word",
+    backgroundColor: "#9fafdf",
+    backgroundClip: "border-box",
+    borderRadius: ".25rem",
+  },
+  cardbody: {
+    backgroundColor: "#9fafdf",
+    padding: "15px 15px 15px 15px",
+  },
+};
 
 const DashboardPatients = (props) => {
   return (
-    <div>Patient Dashboard </div>
-    // <div className={styles.container}>
-    //   <div className={styles.content}>
-    //     <div className={styles.left}>
-    //       <div className={styles.title}>
-    //         {/* <h2> Welcome {{props.name}}!</h2> */}
-    //         <p styles={styles.paragraph}>
-    //           This is a secure medical portal to help connect and provide you
-    //           with access and tools to assist you with your medical needs{" "}
-    //         </p>
-    //         <div class="row" styles={styles.row}>
-    //           <div class="col-sm col-xs-12">
-    //             <div class="card " styles={styles.card} />
-    //             <img
-    //               src="publiccopy/image/appointments.png"
-    //               alt="Card appointment"
-    //             />
-    //             <h5 class="card-title">
-    //               Upcoming Appointments{" "}
-    //               <a href="/appointments/signup" class="edit-history-link-text">
-    //                 <img
-    //                   class="edit-history-link"
-    //                   src="/image/add_appointments.png"
-    //                 />{" "}
-    //                 Add
-    //               </a>
-    //             </h5>
+    <div style={styles.container}>
+      {/* HELP WITH THE GRAPHQL </div> */}
+      <h2>
+        Welcome <strong>PATIENT NAME</strong>P!
+      </h2>
+      !
+      <p>
+        This is a secure medical portal to help connect and provide you with
+        access and tools to assist you with your medical needs
+      </p>
+      <div style={styles.row}>
+        <div class="col-sm col-xs-12">
+          <div style={styles.card}>
+            <img
+              src={appointments}
+              alt="Image of appontments"
+              class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+              width="200px"
+            />
+            <h5 class="card-title">
+              Upcoming Appointments
+              <a href="/appointments/signup" class="edit-history-link-text">
+                <img class="edit-history-link" src={addappointments}></img>Add{" "}
+              </a>
+            </h5>
 
-    //             {/* {{#each appointments as |appointment| }} */}
-    //             {/* <div class="col-sm col-xs-12 appointmentcard">
-    //                 <p class="card-text">Dr. {{appointment.doctor.name}}<br> at {{appointment.datetime}}</p>
-    //                 <p class="card-text"><strong>Reason(s) for visit: {{appointment.concern}}</strong></p>
-    //                 <p class="card-text"><strong>{{appointment.status}}</strong></p>
+            {/* Appointments  */}
+            <strong>FOR EACH APPOINTMENT</strong>
+            <div class="col-sm col-xs-12 appointmentcard" style={styles.card}>
+              <p class="card-text">
+                Dr. <strong>DOCTOR NAME</strong> <br></br> at{" "}
+                <strong>APPOINTMENT DATE/TIME</strong>
+              </p>
+              <p class="card-text">
+                Reason for visit: <strong>APPOINTMENT CONCERN</strong>
+              </p>
+              <p class="card-text">
+                <strong>APPOINTMENT STATUS</strong>
+              </p>
+            </div>
 
-    //             </div>
-    //             {{/each}}
-    //         </div>
-    //     </div>
-    //     <div class="col-sm col-xs-12">
-    //     <div class="card " styles={styles.card}">
-    //             <img src="/image/history.png" alt="Card history" />
-    //             <h5 class="card-title">Patient History <a href="/history" class="edit-history-link-text"><img
-    //                         class="edit-history-link" src="/image/edit.png"> Edit</a></h5>
-    //             <h6 class="card-subtitle mb-2 text-muted">Height: {{patient.history.height}}</h6>
-    //             <h6 class="card-subtitle mb-2 text-muted">Weight: {{patient.history.weight}}</h6>
-    //             <h6 class="card-subtitle mb-2 text-muted">Allergies: {{patient.history.allergies}}</h6>
-    //             <h6 class="card-subtitle mb-2 text-muted">Current Medications: {{patient.history.medications}}</h6>
-    //             <h6 class="card-subtitle mb-2 text-muted">Prior History Data: {{patient.history.data}}</h6>
-    //         </div>
-    //     </div>
-    // </div>
-    // <br>
-    // <div class="row">
-    //     <div class="col-sm col-xs-12">
-    //         <div class="card" styles={styles.card}>
-    //             <h5 class="card-title">Chat here!</h5>
-    //             <div class="col-sm col-xs-12">
-    //                 <p class="card-text">{{> chatLogin }}</p>
-    //             </div>
-    //         </div>
-    //     </div>
-    // </div>
-    //     {{!-- <div class="col-sm col-xs-12">
-    //         <div class="card" styles={styles.card}>
-    //             <img src="//placehold.it/250?text=AhPuch.jpg" alt="Card image cap" />
-    //             <h1> Ah Puch</h1>
-    //             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-    //                 content. This content is a little bit longer.</p>
-    //         </div>
-    //     </div> --}} */}
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
+            {/* Patient History */}
+            <div class="col-sm col-xs-12">
+              <div class="card" style={styles.card}>
+                <img src={history} alt="history alt"></img>
+                <h5 class="card-title">
+                  Patient History{" "}
+                  <a href="/history" class="edit-history-link-text">
+                    <img src={edit} alt="edit img" />
+                  </a>
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  Height: <strong>PATIENT HISTORY HEIGHT</strong>
+                </h6>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  Weight: <strong>PATIENT HISTORY WEIGHT</strong>
+                </h6>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  Allergies: <strong>PATIENT HISTORY ALLERGIES</strong>
+                </h6>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  Current Medications:{" "}
+                  <strong>PATIENT HISTORY MEDICATIONS</strong>
+                </h6>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  Prior History Data: <strong>PATIENT HISTORY DATA</strong>
+                </h6>
+              </div>
+            </div>
+            <break></break>
+            <div style={style.row} class="row">
+              <div class="col-sm col-xs-12">
+                <div class="card" style={style.card}>
+                  <h5 class="card-title">Chat Here!</h5>
+                  <div class="col-sm col-xs-12">
+                    <p class="card-text">
+                      <strong>CHAT LOGIN</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
