@@ -42,6 +42,10 @@ const styles = {
     backgroundColor: "#9fafdf",
     padding: "15px 15px 15px 15px",
   },
+  img: {
+    height: "20px",
+    width: "20px",
+  },
 };
 
 const DashboardPatients = (props) => {
@@ -61,14 +65,19 @@ const DashboardPatients = (props) => {
           <div style={styles.card}>
             <img
               src={appointments}
-              alt="Image of appontments"
+              alt="Image of appointments"
               class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
               width="200px"
             />
             <h5 class="card-title">
               Upcoming Appointments
               <a href="/appointments/signup" class="edit-history-link-text">
-                <img class="edit-history-link" src={addappointments}></img>Add{" "}
+                <img
+                  style={styles.img}
+                  class="edit-history-link"
+                  src={addappointments}
+                ></img>
+                Add{" "}
               </a>
             </h5>
 
@@ -90,11 +99,15 @@ const DashboardPatients = (props) => {
             {/* Patient History */}
             <div class="col-sm col-xs-12">
               <div class="card" style={styles.card}>
-                <img src={history} alt="history alt"></img>
+                <img
+                  src={history}
+                  alt="history alt"
+                  class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                ></img>
                 <h5 class="card-title">
                   Patient History{" "}
                   <a href="/history" class="edit-history-link-text">
-                    <img src={edit} alt="edit img" />
+                    <img style={styles.img} src={edit} alt="edit img" />
                   </a>
                 </h5>
                 <h6 class="card-subtitle mb-2 text-muted">
@@ -116,9 +129,9 @@ const DashboardPatients = (props) => {
               </div>
             </div>
             <break></break>
-            <div style={style.row} class="row">
+            <div style={styles.row} class="row">
               <div class="col-sm col-xs-12">
-                <div class="card" style={style.card}>
+                <div class="card" style={styles.card}>
                   <h5 class="card-title">Chat Here!</h5>
                   <div class="col-sm col-xs-12">
                     <p class="card-text">
