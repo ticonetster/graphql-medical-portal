@@ -39,7 +39,8 @@ const SignupForm = () => {
                 variables: { ...userFormData }
             });
             console.log(data);
-            Auth.login(data.addPatients.token);
+            // Auth.login(data.addUser.token);
+            Auth.login(data.addPatients.token, data.addPatients.patient.doctor);
 
         } catch (err) {
             console.error(err);
