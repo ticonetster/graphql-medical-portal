@@ -2,14 +2,6 @@ const { Appointments, Doctors, History, Patients, Schedules } = require('../mode
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
-const TEST_USER = {
-    _id: '1',
-    username: 'test.user',
-    name: 'test user',
-    email: 'testuser@test.net',
-    password: 'password'
-}
-
 const resolvers = {
     // Query: {
     //     appointments: async () => {
@@ -28,42 +20,8 @@ const resolvers = {
         test: async () => {
             return 'test success!';
         },
-        currentUser: async () => {
-            return TEST_USER;
-        },
-        
     },
     Mutation: {
-        login: async (parent, { email, password }) => {
-            const patient = await Patients.findOne({ email });
-
-            if (!patient) {
-                throw new AuthenticationError(`Incorrect patient login information! [${email}]`);
-            }
-
-            const correctPw = await patient.isCorrectPassword(password);
-
-            if (!correctPw) {
-                throw new AuthenticationError('Incorrect patient password information!', 'INCORRECT_PASSWORD');
-            }
-
-            const token = signToken(patient);
-            return { token, patient };
-        },
-        signup: async (parent, args) => {
-            const { email } = args;
-            const existingUser = await Patients.findOne({ email });
-
-            if (existingUser) {
-                throw new AuthenticationError(`Email already exist! [${email}]`);
-            }
-
-            const patient = await Patients.create(args);
-            const token = signToken(patient);
-
-            return { token, patient };
-        },
-        
         loginPatients: async (parent, { email, password }) => {
             const patient = await Patients.findOne({ email });
 
@@ -82,7 +40,7 @@ const resolvers = {
         },
 
         addPatients: async (parent, args) => {
-            console.log("TEST TEST IN BACKEND HELP")
+            console.log("addPatients: TEST TEST IN BACKEND DEBUG")
             const { email } = args;
             const existingUser = await Patients.findOne({ email });
 
@@ -114,15 +72,19 @@ const resolvers = {
         },
 
         addDoctors: async (parent, args) => {
+            console.log("addDoctors: TEST TEST IN BACKEND DEBUG")
             const { email } = args;
-            const existingUser = await Patients.findOne({ email });
-
+            console.log("args: ", args)
+            const existingUser = await Doctors.findOne({ email });
+            console.log("existingUser: ", existingUser)
             if (existingUser) {
                 throw new AuthenticationError(`Email already exist! [${email}]`);
             }
-
+            console.log("it is hitting this!!!!")
             const doctor = await Doctors.create(args);
+            console.log("doctor: ", doctor)
             const token = signToken(doctor);
+            console.log("token: ", token)
 
             return { token, doctor };
         }
