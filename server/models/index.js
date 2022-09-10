@@ -1,7 +1,7 @@
-const appointments = require('./appointments');
-const doctors = require('./doctors');
-const history = require('./history');
-const patient = require('./patient');
-const schedules = require('./schedules');
+const Appointments = require('./Appointments');
+const Doctors = require('./Doctors');
+const History = require('./History');
+const Patients = require('./Patients');
+const Schedules = require('./Schedules');
 
-module.exports = { appointments, doctors, history, patient, schedules };
+module.exports = { Appointments, Doctors, History, Patients, Schedules };

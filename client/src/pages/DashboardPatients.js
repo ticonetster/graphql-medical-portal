@@ -1,37 +1,9 @@
-import "../css/style.css";
-const styles = {
-  container: {
-    paddingRight: "15px",
-    paddingLeft: "15px",
-    marginRight: "auto",
-    marginLeft: "auto",
-    width: "100%",
-  },
-  paragraph: {
-    marginTop: "0",
-    marginBottom: "1rem",
-  },
-  row: {
-    display: "flex",
-    flexWrap: "wrap",
-    marginRight: "-15px",
-    marginLeft: "-15px",
-  },
-  card: {
-    position: "relative",
-    display: "flex",
-    flexDirection: "column",
-    minWidth: "0",
-    wordWrap: "break-word",
-    backgroundColor: "#fff",
-    backgroundClip: "border-box",
-    borderRadius: ".25rem",
-  },
-};
+import React from "react";
 
-const Home = (props) => {
+
+const DashboardPatients = (props) => {
   return (
-    <div>Hello </div>
+    <div>Patient Dashboard </div>
     // <div className={styles.container}>
     //   <div className={styles.content}>
     //     <div className={styles.left}>
@@ -110,4 +82,4 @@ const Home = (props) => {
   );
 };
 
-export default Home;
+export default DashboardPatients;

@@ -1,25 +1,29 @@
-const { Schema, model } = require('mongoose');
-//deleted id will create default in mongooseDB as _id
-const doctorsSchema = new Schema(
+const { model, Schema } = require('mongoose');
+const bcrypt = require('bcrypt');
+
+const patientsSchema = new Schema(
     {
         username: {
             type: String,
-            required: true,
-            unique: true
+            default: null
         },
         name: {
             type: String,
-            required: true
+            default: null
         },
         gender: {
             type: String,
-            required: true
+            default: null
         },
         email: {
             type: String,
             required: true,
             unique: true,
             match: [/.+@.+\..+/, 'Must use a valid email address'],
+        },
+        address: {
+            type: String,
+            default: null
         },
         password: {
             type: String,
@@ -31,6 +35,12 @@ const doctorsSchema = new Schema(
                 ref: 'appointments',
             }
         ],
+        primarycareteam: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'doctors',
+            }
+        ]
     },
     // set this to use virtual below
     {
@@ -41,7 +51,7 @@ const doctorsSchema = new Schema(
 );
 
 // hash user password
-doctorsSchema.pre('save', async function (next) {
+patientsSchema.pre('save', async function (next) {
     if (this.isNew || this.isModified('password')) {
         const saltRounds = 10;
         this.password = await bcrypt.hash(this.password, saltRounds);
@@ -51,10 +61,10 @@ doctorsSchema.pre('save', async function (next) {
 });
 
 // custom method to compare and validate password for logging in
-doctorsSchema.methods.isCorrectPassword = async function (password) {
+patientsSchema.methods.isCorrectPassword = async function (password) {
     return bcrypt.compare(password, this.password);
 };
 
-const doctors = model('doctors', doctorsSchema);
+const Patients = model('Patients', patientsSchema);
 
-module.exports = doctors;
+module.exports = Patients;
