@@ -32,10 +32,15 @@ class AuthService {
         return localStorage.getItem('id_token');
     }
 
-    login(idToken) {
+    login(idToken, doctor) {
         // Saves user token to localStorage
         localStorage.setItem('id_token', idToken);
-        window.location.assign('/');
+        
+        if (doctor){
+            window.location.assign('/doctors-dashboard');
+        }
+        window.location.assign('/patients-dashboard');
+
     }
 
     logout() {
