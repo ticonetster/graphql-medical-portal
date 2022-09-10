@@ -40,7 +40,12 @@ const patientsSchema = new Schema(
                 type: Schema.Types.ObjectId,
                 ref: 'doctors',
             }
-        ]
+        ],
+        history:{
+            type: Schema.Types.ObjectId,
+            ref: 'history',
+        },
+
     },
     // set this to use virtual below
     {
