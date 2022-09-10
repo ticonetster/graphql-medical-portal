@@ -53,7 +53,7 @@ const DashboardPatients = (props) => {
     <div style={styles.container}>
       {/* HELP WITH THE GRAPHQL </div> */}
       <h2>
-        Welcome <strong>PATIENT NAME</strong>P!
+        Welcome <strong>PATIENT NAME</strong>
       </h2>
       !
       <p>
