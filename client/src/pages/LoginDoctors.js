@@ -39,7 +39,8 @@ const LoginDoctor = () => {
             });
             console.log(data);
 
-            Auth.login(data.loginDoctors.token);
+            // Auth.login(data.loginDoctors.token);
+            Auth.login(data.loginDoctors.token, data.loginDoctors.patient.doctor);
 
         } catch (e) {
             console.error(e);

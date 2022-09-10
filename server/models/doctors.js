@@ -4,16 +4,15 @@ const doctorsSchema = new Schema(
     {
         username: {
             type: String,
-            required: true,
-            unique: true
+            default: null
         },
         name: {
             type: String,
-            required: true
+            default: null
         },
         gender: {
             type: String,
-            required: true
+            default: null
         },
         email: {
             type: String,
@@ -31,6 +30,10 @@ const doctorsSchema = new Schema(
                 ref: 'appointments',
             }
         ],
+        doctor: {
+            type: Boolean,
+            default: true
+        },
     },
     // set this to use virtual below
     {
