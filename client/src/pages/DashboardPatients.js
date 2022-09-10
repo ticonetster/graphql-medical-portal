@@ -1,33 +1,5 @@
-import "../css/style.css";
-const styles = {
-  container: {
-    paddingRight: "15px",
-    paddingLeft: "15px",
-    marginRight: "auto",
-    marginLeft: "auto",
-    width: "100%",
-  },
-  paragraph: {
-    marginTop: "0",
-    marginBottom: "1rem",
-  },
-  row: {
-    display: "flex",
-    flexWrap: "wrap",
-    marginRight: "-15px",
-    marginLeft: "-15px",
-  },
-  card: {
-    position: "relative",
-    display: "flex",
-    flexDirection: "column",
-    minWidth: "0",
-    wordWrap: "break-word",
-    backgroundColor: "#fff",
-    backgroundClip: "border-box",
-    borderRadius: ".25rem",
-  },
-};
+import React from "react";
+
 
 const DashboardPatients = (props) => {
   return (

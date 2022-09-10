@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ApolloProvider } from '@apollo/react-hooks';
 // import ApolloClient from 'apollo-boost';
 import { ApolloClient, InMemoryCache } from "@apollo/client";
@@ -43,18 +43,25 @@ function App() {
             <Navbar />
               <div className="container">
                 {/* <Header /> */}
-                <Routes>
+                <Switch>
                   <Route path="/">
+                    <Route exact path='/' component={LoginPatients} />
+                    <Route exact path='/signup' component={SignupPatients} />
+                    <Route exact path='/patients-dashboard' component={DashboardPatients} />
+                    <Route exact path='/doctors-login' component={LoginDoctors} />
+                    <Route exact path='/doctors-signup' component={SignupDoctors} />
+                    <Route exact path='/doctors-dashboard' component={DashboardDoctors} />
+                    <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
                     {/* <Route index element={<Login />} /> */}
-                    <Route index element={<LoginPatients />} />
+                    {/* <Route index element={<LoginPatients />} />
                     <Route path="doctors-dashboard" element={<DashboardDoctors />} />
                     <Route path="patients-dashboard" element={<DashboardPatients />} />
                     <Route path="signup" element={<SignupPatients />} />
                     <Route path="doctors-login" element={<LoginDoctors />} />
                     <Route path="doctors-signup" element={<SignupDoctors />} />
-                    <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
+                    <Route render={() => <h1 className='display-2'>Wrong page!</h1>} /> */}
                   </Route>
-                </Routes>
+                </Switch>
               </div>
             <Footer />
           </>

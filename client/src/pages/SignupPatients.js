@@ -16,7 +16,7 @@ const SignupForm = () => {
     const [showAlert, setShowAlert] = useState(false);
 
     const [addPatients] = useMutation(ADD_PATIENTS);
-    console.log("addPatients: ", addPatients)
+    // console.log("addPatients: ", addPatients)
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
