@@ -55,6 +55,6 @@ doctorsSchema.methods.isCorrectPassword = async function (password) {
     return bcrypt.compare(password, this.password);
 };
 
-const doctors = model('doctors', doctorsSchema);
+const Doctors = model('doctors', doctorsSchema);
 
-module.exports = doctors;
+module.exports = Doctors;

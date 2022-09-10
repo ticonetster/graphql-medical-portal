@@ -29,6 +29,6 @@ const historySchema = new Schema({
     // }
 });
 
-const history = model('history', historySchema);
+const History = model('history', historySchema);
 
-module.exports = history;
+module.exports = History;
