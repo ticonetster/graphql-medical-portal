@@ -19,6 +19,6 @@ const schedulesSchema = new Schema({
     }
 });
 
-const schedules = model('schedules', schedulesSchema);
+const Schedules = model('schedules', schedulesSchema);
 
-module.exports = schedules;
+module.exports = Schedules;
