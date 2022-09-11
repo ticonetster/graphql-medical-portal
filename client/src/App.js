@@ -8,7 +8,7 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-import "./App.css";
+// import "./App.css";
 import LoginPatients from "./pages/LoginPatients";
 import SignupPatients from "./pages/SignupPatients";
 import LoginDoctors from "./pages/LoginDoctors";
@@ -17,6 +17,7 @@ import DashboardPatients from "./pages/DashboardPatients"
 import DashboardDoctors from "./pages/DashboardDoctors"
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import ChatLogin from "./pages/Chat/Login";
 
 const client = new ApolloClient({
   request: operation => {
@@ -51,6 +52,7 @@ function App() {
                     <Route exact path='/doctors-dashboard' component={DashboardDoctors} />
                     <Route exact path='/about' component={About} />
                     <Route exact path='/contact' component={Contact} />
+                    <Route exact path='/chatlogin' component={ChatLogin} />
                     {/*<Route render={() => <h1 className='display-2'>Wrong page!</h1>} />*/}
                     {/* <Route index element={<Login />} /> */}
                     {/* <Route index element={<LoginPatients />} />

@@ -45,7 +45,10 @@ const patientsSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: 'history',
         },
-
+        usertype:{
+            type:String,
+            default: null
+        }
     },
     // set this to use virtual below
     {
@@ -60,8 +63,8 @@ patientsSchema.pre('save', async function (next) {
     if (this.isNew || this.isModified('password')) {
         const saltRounds = 10;
         this.password = await bcrypt.hash(this.password, saltRounds);
+        this.usertype = 'patient'
     }
-
     next();
 });
 
