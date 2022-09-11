@@ -65,7 +65,6 @@ const SignUp = (props) => {
               <div class="text-center">
                 <img
                   src={singuppatient}
-                  alt="cartoon of sickly man"
                   class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
                   width="200px"
                   alt="profile"
