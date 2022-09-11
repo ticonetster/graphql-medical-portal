@@ -33,7 +33,8 @@ connection.once('open', async () => {
         {
             "_id": "631e428eba8096686455036f",
             "username": "jakesmith",
-            "name": "Jake Smith",
+            "firstName": "Jake",
+            "lastName": "Smith",
             "gender": "male",
             "email": "jakesmith@hospital.com",
             "password": "j@kesm1th",
@@ -46,7 +47,8 @@ connection.once('open', async () => {
         {
             "_id": "631e428eba8096686455036e",
             "username": "robbrown",
-            "name": "Rob Brown",
+            "firstName": "Rob",
+            "lastName": "Brown",
             "gender": "male",
             "email": "robbrown@hospital.com",
             "password": "r0bbr0wn",
@@ -59,7 +61,8 @@ connection.once('open', async () => {
         {
             "_id": "631e428eba80966864550370",
             "username": "susangartner",
-            "name": "Susan Gartner",
+            "firstName": "Susan",
+            "lastName": "Gartner",
             "gender": "female",
             "email": "susangartner@hospital.com",
             "password": "sus@ng@rtn3r",

@@ -15,8 +15,9 @@ const typeDefs = gql`
 
     type Doctors {
         _id: ID
+        firstName: String
+        lastName: String
         username: String
-        name: String
         email: String
     }   
 
@@ -45,7 +46,7 @@ const typeDefs = gql`
         loginPatients(email: String!, password: String!): AuthPatients
         addPatients(username: String!, email: String!, password: String!): AuthPatients 
         loginDoctors(email: String!, password: String!): AuthDoctors
-        addDoctors(username: String!, email: String!, password: String!): AuthDoctors 
+        addDoctors(firstName: String!, lastName: String!, username: String!, email: String!, password: String!): AuthDoctors 
     }
 
 `;
