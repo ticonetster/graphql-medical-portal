@@ -63,9 +63,7 @@ const NavBar = () => {
                     </i>
 
                     <ul style={{ left: open ? "0" : "-100vw" }}>
-<<<<<<< HEAD
                         {/* <li>
-=======
                     {Auth.loggedIn() ? (
                         (Auth.getEntity() === "patient") ? (
                             <li>
@@ -90,7 +88,6 @@ const NavBar = () => {
                         )
                     ) : (
                         <li>
->>>>>>> 3e2785c97dbab1912f7c2464ed1a439aa33d2a99
                             <Link
                                 to="/"
                                 onClick={handleClose}
@@ -98,13 +95,8 @@ const NavBar = () => {
                             >
                                 Home
                             </Link>
-<<<<<<< HEAD
                         </li> */}
-=======
-                        </li>
-                    )}
                         
->>>>>>> 3e2785c97dbab1912f7c2464ed1a439aa33d2a99
                         <li>
                             <Link
                                 to="/about"
