@@ -52,10 +52,9 @@ const DashboardPatients = (props) => {
   return (
     <div style={styles.container}>
       {/* HELP WITH THE GRAPHQL </div> */}
-      <h2>
-        Welcome <strong>PATIENT NAME</strong>
+      <h2 color="black !important">
+        Welcome <strong>PATIENT NAME</strong>!
       </h2>
-      !
       <p>
         This is a secure medical portal to help connect and provide you with
         access and tools to assist you with your medical needs
@@ -84,7 +83,10 @@ const DashboardPatients = (props) => {
 
             {/* Appointments  */}
             <strong>FOR EACH APPOINTMENT</strong>
-            <div className="col-sm col-xs-12 appointmentcard" style={styles.card}>
+            <div
+              className="col-sm col-xs-12 appointmentcard"
+              style={styles.card}
+            >
               <p className="card-text">
                 Dr. <strong>DOCTOR NAME</strong> <br></br> at{" "}
                 <strong>APPOINTMENT DATE/TIME</strong>
