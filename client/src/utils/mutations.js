@@ -43,13 +43,14 @@ export const LOGIN_DOCTORS = gql`
 `;
 
 export const ADD_DOCTORS = gql`
-    mutation AddDoctors($username:String!, $email:String!, $password: String!){
-        addDoctors(username: $username, email:$email, password:$password) {
+    mutation AddDoctors($firstName:String!, $lastName:String!, $username:String!, $email:String!, $password: String!){
+        addDoctors(firstName: $firstName, lastName: $lastName, username: $username, email: $email, password: $password) {
             token
             doctor {
                 _id
+                firstName
+                lastName
                 username
-                name
                 email
             }
         }

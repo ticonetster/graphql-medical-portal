@@ -25,23 +25,14 @@
 .company {
     display: flex;
 }
-/* .logo img {
-    width: auto;
-    height: 100%;
-    margin-left: -40px;
-} */
 
-/* .logo img {
-    width: 100%;
-    border-radius: 50%;
+h1:hover {
+    /* padding: 5px; */
+    color: black;
+    /* transform: scale(0.8); */
+    background: transparent;
+    text-decoration: none;
 }
-
-.logo {
-    display: flex;
-    max-width: 130px;
-    height: 100%;
-    text-align: center;
-} */
 
 .list-wrapper {
     display: flex;

@@ -8,7 +8,7 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-import "./App.css";
+// import "./App.css";
 import LoginPatients from "./pages/LoginPatients";
 import SignupPatients from "./pages/SignupPatients";
 import LoginDoctors from "./pages/LoginDoctors";
@@ -18,6 +18,8 @@ import DashboardDoctors from "./pages/DashboardDoctors";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import History from "./pages/History";
+import ChatLogin from "./pages/Chat/Login";
+
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -40,34 +42,25 @@ function App() {
         <Router>
           <>
             <Navbar />
-            <div className="container">
-              {/* <Header /> */}
-              <Switch>
-                <Route path="/">
-                  <Route exact path="/" component={LoginPatients} />
-                  <Route exact path="/signup" component={SignupPatients} />
-                  <Route
-                    exact
-                    path="/patients-dashboard"
-                    component={DashboardPatients}
-                  />
-                  <Route exact path="/doctors-login" component={LoginDoctors} />
-                  <Route
-                    exact
-                    path="/doctors-signup"
-                    component={SignupDoctors}
-                  />
-                  <Route
-                    exact
-                    path="/doctors-dashboard"
-                    component={DashboardDoctors}
-                  />
-                  <Route exact path="/about" component={About} />
-                  <Route exact path="/contact" component={Contact} />
-                  <Route exact path="/history" component={History} />
-                  {/*<Route render={() => <h1 className='display-2'>Wrong page!</h1>} />*/}
-                  {/* <Route index element={<Login />} /> */}
-                  {/* <Route index element={<LoginPatients />} />
+
+              <div className="container">
+                {/* <Header /> */}
+                <Switch>
+                  <Route path="/">
+                    <Route exact path='/' component={LoginPatients} />
+                    <Route exact path='/signup' component={SignupPatients} />
+                    <Route exact path='/patients-dashboard' component={DashboardPatients} />
+                    <Route exact path='/doctors-login' component={LoginDoctors} />
+                    <Route exact path='/doctors-signup' component={SignupDoctors} />
+                    <Route exact path='/doctors-dashboard' component={DashboardDoctors} />
+                    <Route exact path='/about' component={About} />
+                    <Route exact path='/contact' component={Contact} />
+                    <Route exact path='/chatlogin' component={ChatLogin} />
+                    <Route exact path="/history" component={History} />
+                    {/*<Route render={() => <h1 className='display-2'>Wrong page!</h1>} />*/}
+                    {/* <Route index element={<Login />} /> */}
+                    {/* <Route index element={<LoginPatients />} />
+
                     <Route path="doctors-dashboard" element={<DashboardDoctors />} />
                     <Route path="patients-dashboard" element={<DashboardPatients />} />
                     <Route path="signup" element={<SignupPatients />} />

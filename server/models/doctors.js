@@ -7,7 +7,11 @@ const doctorsSchema = new Schema(
             type: String,
             default: null
         },
-        name: {
+        firstName: {
+            type: String,
+            default: null
+        },
+        lastName: {
             type: String,
             default: null
         },
@@ -30,7 +34,11 @@ const doctorsSchema = new Schema(
                 type: Schema.Types.ObjectId,
                 ref: 'appointments',
             }
-        ]
+        ],
+        usertype:{
+            type:String,
+            default: null
+        }
     },
     // set this to use virtual below
     {
@@ -45,6 +53,7 @@ doctorsSchema.pre('save', async function (next) {
     if (this.isNew || this.isModified('password')) {
         const saltRounds = 10;
         this.password = await bcrypt.hash(this.password, saltRounds);
+        this.usertype = 'doctor'
     }
 
     next();
