@@ -1,23 +1,13 @@
 const mongoose = require('mongoose');
-
-//change the location of the mongodb localhost.
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/techmatchup', {
+mongoose.pluralize(null);
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/medical-portal', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
 });
 
-// const { connect, connection } = require('mongoose');
 
-// const connectionString =
-//   process.env.MONGODB_URI || 'mongodb://localhost:27017/socialmediaDB';
-
-// connect(connectionString, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
-
-// module.exports = connection;
-
-
+console.log(`\n ----------- Mongoose database connected! -----------`)
 
 module.exports = mongoose.connection;

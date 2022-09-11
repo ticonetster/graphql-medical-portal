@@ -11,7 +11,7 @@ const appointmentsSchema = new Schema({
     dateTime: {
         type: Date
     },
-    patient:         {
+    patient:{
         type: Schema.Types.ObjectId,
         ref: 'patient',
     },
@@ -21,6 +21,6 @@ const appointmentsSchema = new Schema({
         }
 });
 
-const appointments = model('appointments', appointmentsSchema);
+const Appointments = model('appointments', appointmentsSchema);
 
-module.exports = appointments;
+module.exports = Appointments;

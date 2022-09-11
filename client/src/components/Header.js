@@ -26,20 +26,20 @@ const styles = {
 
 const Header = (props) => {
   return (
-    <header class="display-flex justify-space-between align-center p-2">
-      <div class="header" style={styles.header}>
-        <a href="/" class="logo" style={styles.logo}>
-          <img class="img-header" src={healthcare} alt="Card appointment" />
-          Medical Portal
-        </a>
-        <div class="header-right" style={styles.right}>
-          <a href="#contact">Contact</a>
-          <a href="#about">About</a>
+    // <header class="display-flex justify-space-between align-center p-2">
+    //   <div class="header" style={styles.header}>
+    //     <a href="/" class="logo" style={styles.logo}>
+    //       <img class="img-header" src={healthcare} alt="Card appointment" />
+    //       Medical Portal
+    //     </a>
+    //     <div class="header-right" style={styles.right}>
+    //       <a href="#contact">Contact</a>
+    //       <a href="#about">About</a>
 
-          <a href="/login">Login</a>
-        </div>
-      </div>
-    </header>
+    //       <a href="/login">Login</a>
+    //     </div>
+    //   </div>
+    // </header>
   );
 };
 
