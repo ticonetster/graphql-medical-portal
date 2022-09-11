@@ -65,7 +65,7 @@ const DashboardPatients = (props) => {
           <div style={styles.card}>
             <img
               src={appointments}
-              alt="Image of appointments"
+              alt="image_of_appointments"
               class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
               width="200px"
             />
@@ -74,6 +74,7 @@ const DashboardPatients = (props) => {
               <a href="/appointments/signup" class="edit-history-link-text">
                 <img
                   style={styles.img}
+                  alt="upcoming_appointments"
                   class="edit-history-link"
                   src={addappointments}
                 ></img>

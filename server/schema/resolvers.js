@@ -40,7 +40,6 @@ const resolvers = {
         },
 
         addPatients: async (parent, args) => {
-            console.log("addPatients: TEST TEST IN BACKEND DEBUG")
             const { email } = args;
             const existingUser = await Patients.findOne({ email });
 
@@ -72,19 +71,15 @@ const resolvers = {
         },
 
         addDoctors: async (parent, args) => {
-            console.log("addDoctors: TEST TEST IN BACKEND DEBUG")
             const { email } = args;
-            console.log("args: ", args)
+
             const existingUser = await Doctors.findOne({ email });
-            console.log("existingUser: ", existingUser)
             if (existingUser) {
                 throw new AuthenticationError(`Email already exist! [${email}]`);
             }
-            console.log("it is hitting this!!!!")
+
             const doctor = await Doctors.create(args);
-            console.log("doctor: ", doctor)
             const token = signToken(doctor);
-            console.log("token: ", token)
 
             return { token, doctor };
         }

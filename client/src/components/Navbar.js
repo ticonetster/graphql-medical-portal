@@ -34,9 +34,11 @@ const NavBar = () => {
     return (
         <nav className="navbar">
             <div className="nav-wrapper">
-                <div className="logo">
-                    <img src={healthcare} alt="main" />
-                    <span>Medical Portal</span>
+                <div className="company">
+                    <div className="logo">
+                        <img src={healthcare} alt="healthcare" />
+                    </div>
+                    <h1>Medical Portal</h1>
                 </div>
                 <div className="list-wrapper">
                     <i
@@ -80,11 +82,11 @@ const NavBar = () => {
                                 Contact
                             </Link>
                         </li>
-                        
+
                         {/* if user is logged in show logout button*/}
                         {Auth.loggedIn() ? (
                             <li>
-                                <Link 
+                                <Link
                                     to="/"
                                     onClick={Auth.logout}
                                 >
@@ -93,14 +95,14 @@ const NavBar = () => {
                             </li>
                         ) : (
                             <li>
-                            <Link
-                                to="/doctors-login"
-                                onClick={handleClose}
-                                style={{ color: location.pathname === "/doctors-login" && "#afbdc9" }}
-                            >
-                                Doctors
-                            </Link>
-                        </li>
+                                <Link
+                                    to="/doctors-login"
+                                    onClick={handleClose}
+                                    style={{ color: location.pathname === "/doctors-login" && "#afbdc9" }}
+                                >
+                                    Doctors
+                                </Link>
+                            </li>
                         )}
                     </ul>
                 </div>

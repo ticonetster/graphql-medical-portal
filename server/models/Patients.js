@@ -70,6 +70,6 @@ patientsSchema.methods.isCorrectPassword = async function (password) {
     return bcrypt.compare(password, this.password);
 };
 
-const Patients = model('Patients', patientsSchema);
+const Patients = model('patients', patientsSchema);
 
 module.exports = Patients;
