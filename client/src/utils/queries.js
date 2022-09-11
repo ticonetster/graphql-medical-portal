@@ -3,7 +3,8 @@ import gql from 'graphql-tag';
  const getPatient = gql`
 {
     me{
-        name
+        firstName
+        lastName
         email
         address
         gender
@@ -32,7 +33,8 @@ import gql from 'graphql-tag';
 const getDoctor = gql`
 {
     me{
-        name
+        firstName
+        lastName
         email
         gender
         appointments[{

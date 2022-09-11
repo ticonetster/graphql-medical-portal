@@ -9,7 +9,7 @@ import { main, singupdoctor } from './styles';
 
 const SignupDoctors = () => {
     // set initial form state
-    const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
+    const [userFormData, setUserFormData] = useState({ firstName: '', lastName: '', username: '', email: '', password: '' });
     // set state for form validation
     const [validated] = useState(false);
     // set state for alert
@@ -45,6 +45,8 @@ const SignupDoctors = () => {
         }
 
         setUserFormData({
+            firstName: '',
+            lastName: '',
             username: '',
             email: '',
             password: '',
@@ -69,6 +71,30 @@ const SignupDoctors = () => {
                                 width="200px"
                             />
                         </div>
+                        <Form.Group>
+                            {/* <Form.Label htmlFor='firstName'>First Name</Form.Label> */}
+                            <Form.Control
+                                type='firstName'
+                                placeholder='Your first name'
+                                name='firstName'
+                                onChange={handleInputChange}
+                                value={userFormData.firstName}
+                                required
+                            />
+                            <Form.Control.Feedback type='invalid'>A First Name is required!</Form.Control.Feedback>
+                        </Form.Group>
+                        <Form.Group>
+                            {/* <Form.Label htmlFor='lastName'>Last Name</Form.Label> */}
+                            <Form.Control
+                                type='lastName'
+                                placeholder='Your last name'
+                                name='lastName'
+                                onChange={handleInputChange}
+                                value={userFormData.lastName}
+                                required
+                            />
+                            <Form.Control.Feedback type='invalid'>A Last Name is required!</Form.Control.Feedback>
+                        </Form.Group>
                         <Form.Group>
                             {/* <Form.Label htmlFor='username'>Username</Form.Label> */}
                             <Form.Control
@@ -106,7 +132,7 @@ const SignupDoctors = () => {
                             <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
                             <Button
                                 style={main.epbutton}
-                                disabled={!(userFormData.username && userFormData.email && userFormData.password)}
+                                disabled={!(userFormData.firstName && userFormData.lastName && userFormData.username && userFormData.email && userFormData.password)}
                                 type='submit'
                                 variant='success'>
                                 Submit

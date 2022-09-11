@@ -33,25 +33,36 @@ connection.once('open', async () => {
         {
             "_id": "631e428eba8096686455036f",
             "username": "jakesmith",
-            "name": "Jake Smith",
+            "firstName": "Jake",
+            "lastName": "Smith",
             "gender": "male",
             "email": "jakesmith@hospital.com",
             "password": "j@kesm1th",
+<<<<<<< HEAD
+=======
+            "usertype": "doctor",
+>>>>>>> 699853d406eebe9a2fdc148bebd7f901c1365a07
             "appointments":["631e42f136cc835430e2a24f"],
         },
         {
             "_id": "631e428eba8096686455036e",
             "username": "robbrown",
-            "name": "Rob Brown",
+            "firstName": "Rob",
+            "lastName": "Brown",
             "gender": "male",
             "email": "robbrown@hospital.com",
             "password": "r0bbr0wn",
+<<<<<<< HEAD
+=======
+            "usertype": "doctor",
+>>>>>>> 699853d406eebe9a2fdc148bebd7f901c1365a07
             "appointments":["631e42f136cc835430e2a250"],
         },
         {
             "_id": "631e428eba80966864550370",
             "username": "susangartner",
-            "name": "Susan Gartner",
+            "firstName": "Susan",
+            "lastName": "Gartner",
             "gender": "female",
             "email": "susangartner@hospital.com",
             "password": "sus@ng@rtn3r",
@@ -67,26 +78,38 @@ connection.once('open', async () => {
         {
             "_id": "631e424c632b1c3c14bd15f2",
             "username": "Test",
-            "name": "Test",
+            "firstName": "Test",
+            "lastName": "Test",
             "gender": "Test",
             "email": "test@test.com",
             "password": "testtest",
             "address": "123 Main St",
             "appointments":["631e42f136cc835430e2a24f"],
             "primarycareteam": [doctorData[0]._id],
+<<<<<<< HEAD
             "history": historyData[0]._id
+=======
+            "history": historyData[0]._id,
+            "usertype": "patient"
+>>>>>>> 699853d406eebe9a2fdc148bebd7f901c1365a07
         },
         {
             "_id": "631e428eba80966864550375",
             "username": "princessdisco",
-            "name": "Princess Disco",
+            "firstName": "Princess",
+            "lastName": "Disco",
             "gender": "female",
             "email": "princessdisco@gmail.com",
             "password": "d1sc0b@ll",
             "address": "123 Main St",
             "appointments":["631e42f136cc835430e2a250"],
             "primarycareteam": [doctorData[1]._id],
+<<<<<<< HEAD
             "history": historyData[1]._id
+=======
+            "history": historyData[1]._id,
+            "usertype": "patient",
+>>>>>>> 699853d406eebe9a2fdc148bebd7f901c1365a07
         }
     )
 
