@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../css/styles.css";
+import "../css/style.css";
 
 const styles = {
   container: {
@@ -45,6 +45,10 @@ const History = (props) => {
               <li>
                 Medications: <strong>PATIENT HISTORY MEDICATIONS</strong>
               </li>
+              <li>
+                {" "}
+                Patient History: <strong>PATIENT HISTORY DATA</strong>
+              </li>
             </ul>
             {/* Can the button edit the history for height, weight, allergies and medication or should we not since its previous history? */}
             <button
@@ -53,23 +57,6 @@ const History = (props) => {
             >
               Click to Edit
             </button>
-          </div>
-
-          <div class="card mb-4 box-shadow">
-            <strong> FOR EACH PATIENT HISTORY DATA</strong>
-            <div class="card-header">
-              <h4 class="my-0 font-weight-normal">
-                <strong>PATIENT NAME</strong>
-              </h4>
-            </div>
-            <div class="card-body">
-              <ul class="list-unstyled mt-3 mb-4">
-                <li>
-                  Patient Previous History:{" "}
-                  <strong>PATIENT HISTORY DATA</strong>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>{" "}
