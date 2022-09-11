@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./navbar.css";
+import { navbar } from './styles';
 import healthcare from "../assets/healthcare.png";
 
 import Auth from '../utils/auth';
@@ -32,13 +33,20 @@ const NavBar = () => {
     }, []);
 
     return (
-        <nav className="navbar">
-            <div className="nav-wrapper">
-                <div className="company">
-                    <div className="logo">
+        <nav style={navbar[".navbar"]}>
+            <div style={navbar[".nav-wrapper"]}>
+                <div style={navbar[".company"]}>
+                    <div style={navbar[".logo"]}>
                         <img src={healthcare} alt="healthcare" />
                     </div>
-                    <h1>Medical Portal</h1>
+                    <Link 
+                        to="/"
+                        onClick={handleClose}
+                        style={{ color: location.pathname === "/" && "#afbdc9" }}>
+                            <h1 style={navbar[".h1"]}>
+                                Medical Portal
+                            </h1>
+                    </Link>
                 </div>
                 <div className="list-wrapper">
                     <i
@@ -55,7 +63,7 @@ const NavBar = () => {
                     </i>
 
                     <ul style={{ left: open ? "0" : "-100vw" }}>
-                        <li>
+                        {/* <li>
                             <Link
                                 to="/"
                                 onClick={handleClose}
@@ -63,7 +71,7 @@ const NavBar = () => {
                             >
                                 Home
                             </Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link
                                 to="/about"

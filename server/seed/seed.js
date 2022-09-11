@@ -33,21 +33,24 @@ connection.once('open', async () => {
             "name": "Jake Smith",
             "gender": "male",
             "email": "jakesmith@hospital.com",
-            "password": "j@kesm1th"
+            "password": "j@kesm1th",
+            "usertype": "doctor"
         },
         {
             "username": "robbrown",
             "name": "Rob Brown",
             "gender": "male",
             "email": "robbrown@hospital.com",
-            "password": "r0bbr0wn"
+            "password": "r0bbr0wn",
+            "usertype": "doctor"
         },
         {
             "username": "susangartner",
             "name": "Susan Gartner",
             "gender": "female",
             "email": "susangartner@hospital.com",
-            "password": "sus@ng@rtn3r"
+            "password": "sus@ng@rtn3r",
+            "usertype": "doctor"
         }]
     const patientData = []
     const AppointmentData = []
@@ -64,7 +67,8 @@ connection.once('open', async () => {
             "password": "testtest",
             "address": "123 Main St",
             "primaycareteam": [doctorData[0]._id],
-            "history": historyData[0]._id
+            "history": historyData[0]._id,
+            "usertype": "patient"
         },
         {
             "username": "princessdisco",
@@ -74,7 +78,8 @@ connection.once('open', async () => {
             "password": "d1sc0b@ll",
             "address": "123 Main St",
             "primaycareteam": [doctorData[1]._id],
-            "history": historyData[1]._id
+            "history": historyData[1]._id,
+            "usertype": "patient"
         }
     )
     await Patients.collection.insertMany(patientData)
@@ -85,13 +90,13 @@ connection.once('open', async () => {
         "patient": patientData[1]._id,
         "doctor": doctorData[1]._id
     },
-        {
-            "status": "Test",
-            "dateTime": "2022-10-15T09:00",
-            "concern": "Test",
-            "patient": patientData[0]._id,
-            "doctor": doctorData[0]._id
-        })
+    {
+        "status": "Test",
+        "dateTime": "2022-10-15T09:00",
+        "concern": "Test",
+        "patient": patientData[0]._id,
+        "doctor": doctorData[0]._id
+    })
     await Appointments.collection.insertMany(AppointmentData)
     console.log(patientData)
 
