@@ -20,6 +20,10 @@ const resolvers = {
         test: async () => {
             return 'test success!';
         },
+        getDoctors: async () => {
+            const doctors = await Doctors.find()
+            return doctors
+        }
     },
     Mutation: {
         loginPatients: async (parent, { email, password }) => {
