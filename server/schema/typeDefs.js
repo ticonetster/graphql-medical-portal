@@ -4,7 +4,8 @@ const typeDefs = gql`
     type Patients {
         _id: ID
         username: String
-        name: String
+        firstName: String
+        lastName: String
         email: String
     }   
     
@@ -44,7 +45,7 @@ const typeDefs = gql`
 
     type Mutation {
         loginPatients(email: String!, password: String!): AuthPatients
-        addPatients(username: String!, email: String!, password: String!): AuthPatients 
+        addPatients(firstName: String!, lastName: String!, username: String!, email: String!, password: String!): AuthPatients 
         loginDoctors(email: String!, password: String!): AuthDoctors
         addDoctors(firstName: String!, lastName: String!, username: String!, email: String!, password: String!): AuthDoctors 
     }

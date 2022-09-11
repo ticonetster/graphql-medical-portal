@@ -9,7 +9,7 @@ import { main, singupdoctor } from './styles';
 
 const SignupDoctors = () => {
     // set initial form state
-    const [userFormData, setUserFormData] = useState({firstName: '', lastName: '', username: '', email: '', password: '' });
+    const [userFormData, setUserFormData] = useState({ firstName: '', lastName: '', username: '', email: '', password: '' });
     // set state for form validation
     const [validated] = useState(false);
     // set state for alert

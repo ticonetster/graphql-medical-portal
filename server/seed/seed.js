@@ -72,7 +72,8 @@ connection.once('open', async () => {
         {
             "_id": "631e424c632b1c3c14bd15f2",
             "username": "Test",
-            "name": "Test",
+            "firstName": "Test",
+            "lastName": "Test",
             "gender": "Test",
             "email": "test@test.com",
             "password": "testtest",
@@ -85,7 +86,8 @@ connection.once('open', async () => {
         {
             "_id": "631e428eba80966864550375",
             "username": "princessdisco",
-            "name": "Princess Disco",
+            "firstName": "Princess",
+            "lastName": "Disco",
             "gender": "female",
             "email": "princessdisco@gmail.com",
             "password": "d1sc0b@ll",

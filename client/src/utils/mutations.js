@@ -8,7 +8,8 @@ export const LOGIN_PATIENTS = gql`
             patient {
                 _id
                 username
-                name
+                firstName
+                lastName
                 email
             }
         }
@@ -16,13 +17,14 @@ export const LOGIN_PATIENTS = gql`
 `;
 
 export const ADD_PATIENTS = gql`
-    mutation AddPatients($username:String!, $email:String!, $password: String!) {
-        addPatients(username: $username, email:$email, password:$password) {
+    mutation AddPatients($firstName:String!, $lastName:String!, $username:String!, $email:String!, $password: String!) {
+        addPatients(firstName: $firstName, lastName: $lastName, username: $username, email:$email, password:$password) {
             token
             patient {
                 _id
                 username
-                name
+                firstName
+                lastName
                 email
             }
         }
