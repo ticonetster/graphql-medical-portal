@@ -37,7 +37,7 @@ const LoginForm = () => {
             const { data } = await loginPatients({
                 variables: { ...userFormData }
             });
-            console.log(data);
+            console.log("Patient Data:" + data);
 
             Auth.login(data.loginPatients.token, false);
 
