@@ -38,11 +38,8 @@ connection.once('open', async () => {
             "gender": "male",
             "email": "jakesmith@hospital.com",
             "password": "j@kesm1th",
-<<<<<<< HEAD
-            "usertype": "doctor"
-=======
+            "usertype": "doctor",
             "appointments":["631e42f136cc835430e2a24f"],
->>>>>>> 36a86572e2ef3e4491cee7867991b846aeba17de
         },
         {
             "_id": "631e428eba8096686455036e",
@@ -52,11 +49,8 @@ connection.once('open', async () => {
             "gender": "male",
             "email": "robbrown@hospital.com",
             "password": "r0bbr0wn",
-<<<<<<< HEAD
-            "usertype": "doctor"
-=======
+            "usertype": "doctor",
             "appointments":["631e42f136cc835430e2a250"],
->>>>>>> 36a86572e2ef3e4491cee7867991b846aeba17de
         },
         {
             "_id": "631e428eba80966864550370",
@@ -83,15 +77,10 @@ connection.once('open', async () => {
             "email": "test@test.com",
             "password": "testtest",
             "address": "123 Main St",
-<<<<<<< HEAD
-            "primaycareteam": [doctorData[0]._id],
-            "history": historyData[0]._id,
-            "usertype": "patient"
-=======
             "appointments":["631e42f136cc835430e2a24f"],
             "primarycareteam": [doctorData[0]._id],
-            "history": historyData[0]._id
->>>>>>> 36a86572e2ef3e4491cee7867991b846aeba17de
+            "history": historyData[0]._id,
+            "usertype": "patient"
         },
         {
             "_id": "631e428eba80966864550375",
@@ -101,15 +90,10 @@ connection.once('open', async () => {
             "email": "princessdisco@gmail.com",
             "password": "d1sc0b@ll",
             "address": "123 Main St",
-<<<<<<< HEAD
-            "primaycareteam": [doctorData[1]._id],
-            "history": historyData[1]._id,
-            "usertype": "patient"
-=======
             "appointments":["631e42f136cc835430e2a250"],
             "primarycareteam": [doctorData[1]._id],
-            "history": historyData[1]._id
->>>>>>> 36a86572e2ef3e4491cee7867991b846aeba17de
+            "history": historyData[1]._id,
+            "usertype": "patient",
         }
     )
 
