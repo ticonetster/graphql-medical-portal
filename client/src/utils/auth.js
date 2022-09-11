@@ -38,8 +38,10 @@ class AuthService {
         
         if (doctor){
             window.location.assign('/doctors-dashboard');
+            localStorage.setItem('entity', 'doctor');
         } else {
             window.location.assign('/patients-dashboard');
+            localStorage.setItem('entity', 'patient');
         }
 
     }
@@ -49,6 +51,12 @@ class AuthService {
         localStorage.removeItem('id_token');
         // this will reload the page and reset the state of the application
         window.location.assign('/');
+        // reset entity
+        localStorage.removeItem('entity');
+    }
+    getEntity() {
+        // Retrieves the type of user
+        return localStorage.getItem('entity');
     }
 }
 

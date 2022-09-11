@@ -61,21 +61,21 @@ const DashboardPatients = (props) => {
         access and tools to assist you with your medical needs
       </p>
       <div style={styles.row}>
-        <div class="col-sm col-xs-12">
+        <div className="col-sm col-xs-12">
           <div style={styles.card}>
             <img
               src={appointments}
               alt="image_of_appointments"
-              class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+              className="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
               width="200px"
             />
-            <h5 class="card-title">
+            <h5 className="card-title">
               Upcoming Appointments
-              <a href="/appointments/signup" class="edit-history-link-text">
+              <a href="/appointments/signup" className="edit-history-link-text">
                 <img
                   style={styles.img}
                   alt="upcoming_appointments"
-                  class="edit-history-link"
+                  className="edit-history-link"
                   src={addappointments}
                 ></img>
                 Add{" "}
@@ -84,58 +84,57 @@ const DashboardPatients = (props) => {
 
             {/* Appointments  */}
             <strong>FOR EACH APPOINTMENT</strong>
-            <div class="col-sm col-xs-12 appointmentcard" style={styles.card}>
-              <p class="card-text">
+            <div className="col-sm col-xs-12 appointmentcard" style={styles.card}>
+              <p className="card-text">
                 Dr. <strong>DOCTOR NAME</strong> <br></br> at{" "}
                 <strong>APPOINTMENT DATE/TIME</strong>
               </p>
-              <p class="card-text">
+              <p className="card-text">
                 Reason for visit: <strong>APPOINTMENT CONCERN</strong>
               </p>
-              <p class="card-text">
+              <p className="card-text">
                 <strong>APPOINTMENT STATUS</strong>
               </p>
             </div>
 
             {/* Patient History */}
-            <div class="col-sm col-xs-12">
-              <div class="card" style={styles.card}>
+            <div className="col-sm col-xs-12">
+              <div className="card" style={styles.card}>
                 <img
                   src={history}
                   alt="history alt"
-                  class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                  className="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
                 ></img>
-                <h5 class="card-title">
+                <h5 className="card-title">
                   Patient History{" "}
-                  <a href="/history" class="edit-history-link-text">
+                  <a href="/history" className="edit-history-link-text">
                     <img style={styles.img} src={edit} alt="edit img" />
                   </a>
                 </h5>
-                <h6 class="card-subtitle mb-2 text-muted">
+                <h6 className="card-subtitle mb-2 text-muted">
                   Height: <strong>PATIENT HISTORY HEIGHT</strong>
                 </h6>
-                <h6 class="card-subtitle mb-2 text-muted">
+                <h6 className="card-subtitle mb-2 text-muted">
                   Weight: <strong>PATIENT HISTORY WEIGHT</strong>
                 </h6>
-                <h6 class="card-subtitle mb-2 text-muted">
+                <h6 className="card-subtitle mb-2 text-muted">
                   Allergies: <strong>PATIENT HISTORY ALLERGIES</strong>
                 </h6>
-                <h6 class="card-subtitle mb-2 text-muted">
+                <h6 className="card-subtitle mb-2 text-muted">
                   Current Medications:{" "}
                   <strong>PATIENT HISTORY MEDICATIONS</strong>
                 </h6>
-                <h6 class="card-subtitle mb-2 text-muted">
+                <h6 className="card-subtitle mb-2 text-muted">
                   Prior History Data: <strong>PATIENT HISTORY DATA</strong>
                 </h6>
               </div>
             </div>
-            <break></break>
-            <div style={styles.row} class="row">
-              <div class="col-sm col-xs-12">
-                <div class="card" style={styles.card}>
-                  <h5 class="card-title">Chat Here!</h5>
-                  <div class="col-sm col-xs-12">
-                    <p class="card-text">
+            <div style={styles.row} className="row">
+              <div className="col-sm col-xs-12">
+                <div className="card" style={styles.card}>
+                  <h5 className="card-title">Chat Here!</h5>
+                  <div className="col-sm col-xs-12">
+                    <p className="card-text">
                       <strong>CHAT LOGIN</strong>
                     </p>
                   </div>

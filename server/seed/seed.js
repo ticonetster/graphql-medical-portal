@@ -14,6 +14,7 @@ connection.once('open', async () => {
     await Appointments.deleteMany({});
     //await Schedules.deleteMany({});
     const historyData = [{
+        "_id":"631e42f136cc835430e2a250",
         "height": "5'8''",
         "weight": "180",
         "allergies": "latex",
@@ -21,6 +22,7 @@ connection.once('open', async () => {
         "data": "Previous history: Had a cold",
     },
     {
+        "_id":"631e42f136cc835430e2a24f",
         "height": "5'3''",
         "weight": "130",
         "allergies": "latex",
@@ -29,6 +31,7 @@ connection.once('open', async () => {
     }]
     const doctorData = [
         {
+            "_id":"631e428eba8096686455036f",
             "username": "jakesmith",
             "name": "Jake Smith",
             "gender": "male",
@@ -37,6 +40,7 @@ connection.once('open', async () => {
             "usertype": "doctor"
         },
         {
+            "_id":"631e428eba8096686455036e",
             "username": "robbrown",
             "name": "Rob Brown",
             "gender": "male",
@@ -45,6 +49,7 @@ connection.once('open', async () => {
             "usertype": "doctor"
         },
         {
+            "_id":"631e428eba80966864550370",
             "username": "susangartner",
             "name": "Susan Gartner",
             "gender": "female",
@@ -54,12 +59,13 @@ connection.once('open', async () => {
         }]
     const patientData = []
     const AppointmentData = []
-    await History.collection.insertMany(historyData)
-    await Doctors.collection.insertMany(doctorData)
+    await History.create(historyData)
+    await Doctors.create(doctorData)
     //console.table(doctorData)
     //console.log(doctorData[0])
     patientData.push(
         {
+            "_id":"631e424c632b1c3c14bd15f2",
             "username": "Test",
             "name": "Test",
             "gender": "Test",
@@ -71,6 +77,7 @@ connection.once('open', async () => {
             "usertype": "patient"
         },
         {
+            "_id":"631e428eba80966864550375",
             "username": "princessdisco",
             "name": "Princess Disco",
             "gender": "female",
@@ -82,7 +89,7 @@ connection.once('open', async () => {
             "usertype": "patient"
         }
     )
-    await Patients.collection.insertMany(patientData)
+    await Patients.create(patientData)
     AppointmentData.push({
         "status": "Not Started",
         "dateTime": "2022-10-15T09:00",
@@ -90,14 +97,14 @@ connection.once('open', async () => {
         "patient": patientData[1]._id,
         "doctor": doctorData[1]._id
     },
-    {
-        "status": "Test",
-        "dateTime": "2022-10-15T09:00",
-        "concern": "Test",
-        "patient": patientData[0]._id,
-        "doctor": doctorData[0]._id
-    })
-    await Appointments.collection.insertMany(AppointmentData)
+        {
+            "status": "Test",
+            "dateTime": "2022-10-15T09:00",
+            "concern": "Test",
+            "patient": patientData[0]._id,
+            "doctor": doctorData[0]._id
+        })
+    await Appointments.create(AppointmentData)
     console.log(patientData)
 
 
