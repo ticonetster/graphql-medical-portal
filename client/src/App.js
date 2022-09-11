@@ -1,32 +1,34 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloProvider } from "@apollo/react-hooks";
 // import ApolloClient from 'apollo-boost';
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 
 // import Header from "./components/Header";
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 // import "./App.css";
 import LoginPatients from "./pages/LoginPatients";
 import SignupPatients from "./pages/SignupPatients";
 import LoginDoctors from "./pages/LoginDoctors";
 import SignupDoctors from "./pages/SignupDoctors";
-import DashboardPatients from "./pages/DashboardPatients"
-import DashboardDoctors from "./pages/DashboardDoctors"
+import DashboardPatients from "./pages/DashboardPatients";
+import DashboardDoctors from "./pages/DashboardDoctors";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import History from "./pages/History";
 import ChatLogin from "./pages/Chat/Login";
 
+
 const client = new ApolloClient({
-  request: operation => {
-    const token = localStorage.getItem('id_token');
+  request: (operation) => {
+    const token = localStorage.getItem("id_token");
 
     operation.setContext({
       headers: {
-        authorization: token ? `Bearer ${token}` : ''
-      }
+        authorization: token ? `Bearer ${token}` : "",
+      },
     });
   },
   uri: "/graphql",
@@ -40,6 +42,7 @@ function App() {
         <Router>
           <>
             <Navbar />
+
               <div className="container">
                 {/* <Header /> */}
                 <Switch>
@@ -53,18 +56,20 @@ function App() {
                     <Route exact path='/about' component={About} />
                     <Route exact path='/contact' component={Contact} />
                     <Route exact path='/chatlogin' component={ChatLogin} />
+                    <Route exact path="/history" component={History} />
                     {/*<Route render={() => <h1 className='display-2'>Wrong page!</h1>} />*/}
                     {/* <Route index element={<Login />} /> */}
                     {/* <Route index element={<LoginPatients />} />
+
                     <Route path="doctors-dashboard" element={<DashboardDoctors />} />
                     <Route path="patients-dashboard" element={<DashboardPatients />} />
                     <Route path="signup" element={<SignupPatients />} />
                     <Route path="doctors-login" element={<LoginDoctors />} />
                     <Route path="doctors-signup" element={<SignupDoctors />} />
                     <Route render={() => <h1 className='display-2'>Wrong page!</h1>} /> */}
-                  </Route>
-                </Switch>
-              </div>
+                </Route>
+              </Switch>
+            </div>
             <Footer />
           </>
         </Router>
