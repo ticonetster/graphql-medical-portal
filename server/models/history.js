@@ -2,7 +2,7 @@ const { Schema ,model } = require('mongoose');
 //removed patient id as history belongs to the patient
 const historySchema = new Schema({
     height: {
-        type: Number,
+        type: String,
         default: '0',
         required: true
     },
