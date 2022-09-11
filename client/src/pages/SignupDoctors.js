@@ -5,7 +5,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { ADD_DOCTORS } from '../utils/mutations';
 import Auth from '../utils/auth';
 
-import { SignupStyles, singupdoctor } from './styles';
+import { main, singupdoctor } from './styles';
 
 const SignupDoctors = () => {
     // set initial form state
@@ -33,12 +33,10 @@ const SignupDoctors = () => {
         }
 
         try {
-            console.log("DOCTOR: HITTING THIS STILL DEBUG")
             const { data } = await addDoctors({
                 variables: { ...userFormData }
             });
 
-            console.log("addDoctors::: ", data)
             Auth.login(data.addDoctors.token, true);
 
         } catch (err) {
@@ -54,73 +52,72 @@ const SignupDoctors = () => {
     };
 
     return (
-        <div className="container" style={SignupStyles.container}>
-            <div className="row" style={SignupStyles.row}>
-                <div className="col-md-6 offset-md-3">
-                    <div className="card my-5">
-                        <Form noValidate validated={validated} onSubmit={handleFormSubmit} >
-                            {/* show alert if server response is bad */}
-                            <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-                                Something went wrong with your signup!
-                            </Alert>
+        <div className="container" style={main.container}>
+            <div className="row" style={main.row}>
+                <div className="card my-0" style={main.card}>
+                    <Form noValidate validated={validated} onSubmit={handleFormSubmit} style={main.form}>
+                        {/* show alert if server response is bad */}
+                        <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+                            Something went wrong with your signup!
+                        </Alert>
 
-                            <div className="text-center">
-                                <img
-                                    src={singupdoctor}
-                                    alt="cartoon of sickly man"
-                                    className="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
-                                    width="200px"
-                                />
-                            </div>
-                            <Form.Group>
-                                {/* <Form.Label htmlFor='username'>Username</Form.Label> */}
-                                <Form.Control
-                                    type='text'
-                                    placeholder='Your username'
-                                    name='username'
-                                    onChange={handleInputChange}
-                                    value={userFormData.username}
-                                    required
-                                />
-                                <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
-                            </Form.Group>
-                            <Form.Group>
-                                {/* <Form.Label htmlFor='email'>Email</Form.Label> */}
-                                <Form.Control
-                                    type='email'
-                                    placeholder='Your email address'
-                                    name='email'
-                                    onChange={handleInputChange}
-                                    value={userFormData.email}
-                                    required
-                                />
-                                <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
-                            </Form.Group>
-                            <Form.Group>
-                                <Form.Label htmlFor='password'>Password</Form.Label>
-                                <Form.Control
-                                    type='password'
-                                    placeholder='Your password'
-                                    name='password'
-                                    onChange={handleInputChange}
-                                    value={userFormData.password}
-                                    required
-                                />
-                                <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
-                            </Form.Group>
+                        <div className="text-center">
+                            <img
+                                src={singupdoctor}
+                                alt="cartoon of sickly man"
+                                className="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                                width="200px"
+                            />
+                        </div>
+                        <Form.Group>
+                            {/* <Form.Label htmlFor='username'>Username</Form.Label> */}
+                            <Form.Control
+                                type='text'
+                                placeholder='Your username'
+                                name='username'
+                                onChange={handleInputChange}
+                                value={userFormData.username}
+                                required
+                            />
+                            <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
+                        </Form.Group>
+                        <Form.Group>
+                            {/* <Form.Label htmlFor='email'>Email</Form.Label> */}
+                            <Form.Control
+                                type='email'
+                                placeholder='Your email address'
+                                name='email'
+                                onChange={handleInputChange}
+                                value={userFormData.email}
+                                required
+                            />
+                            <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+                        </Form.Group>
+                        <Form.Group>
+                            {/* <Form.Label htmlFor='password'>Password</Form.Label> */}
+                            <Form.Control
+                                type='password'
+                                placeholder='Your password'
+                                name='password'
+                                onChange={handleInputChange}
+                                value={userFormData.password}
+                                required
+                            />
+                            <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
                             <Button
+                                style={main.epbutton}
                                 disabled={!(userFormData.username && userFormData.email && userFormData.password)}
                                 type='submit'
                                 variant='success'>
                                 Submit
                             </Button>
-                            <div className="form-text text-center mb-5 text-dark">
-                                <a href="/" className="login-link text-dark fw-bold">
-                                    Log in instead
-                                </a>
-                            </div>
-                        </Form>
-                    </div>
+                        </Form.Group>
+                        <div className="form-text text-center mb-5 text-dark">
+                            <a href="/" className="login-link text-dark fw-bold">
+                                Log in instead
+                            </a>
+                        </div>
+                    </Form>
                 </div>
             </div>
         </div>

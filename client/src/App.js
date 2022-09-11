@@ -8,10 +8,6 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-// import Login from "./pages/Login";
-// import Home from "./pages/Home";
-// import SignUp from "./pages/SignUp";
-
 import "./App.css";
 import LoginPatients from "./pages/LoginPatients";
 import SignupPatients from "./pages/SignupPatients";
@@ -19,6 +15,8 @@ import LoginDoctors from "./pages/LoginDoctors";
 import SignupDoctors from "./pages/SignupDoctors";
 import DashboardPatients from "./pages/DashboardPatients"
 import DashboardDoctors from "./pages/DashboardDoctors"
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 const client = new ApolloClient({
   request: operation => {
@@ -51,6 +49,8 @@ function App() {
                     <Route exact path='/doctors-login' component={LoginDoctors} />
                     <Route exact path='/doctors-signup' component={SignupDoctors} />
                     <Route exact path='/doctors-dashboard' component={DashboardDoctors} />
+                    <Route exact path='/about' component={About} />
+                    <Route exact path='/contact' component={Contact} />
                     {/*<Route render={() => <h1 className='display-2'>Wrong page!</h1>} />*/}
                     {/* <Route index element={<Login />} /> */}
                     {/* <Route index element={<LoginPatients />} />

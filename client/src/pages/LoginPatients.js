@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { LOGIN_PATIENTS } from '../utils/mutations';
 import Auth from '../utils/auth';
-import { LoginStyles, loginpatient } from './styles';
+import { main, loginpatient } from './styles';
 
 
 const LoginForm = () => {
@@ -54,60 +54,59 @@ const LoginForm = () => {
     };
 
     return (
-        <div style={LoginStyles.container}>
-            <div className="row" style={LoginStyles.row}>
-                <div className="col-md-6 offset-md-3">
-                    <div className="card my-5" style={LoginStyles.card}>
-                        <Form noValidate validated={validated} onSubmit={handleFormSubmit} >
-                            <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-                                Something went wrong with your login credentials!
-                            </Alert>
-                            <div className="text-center">
-                                <img
-                                    src={loginpatient}
-                                    className="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
-                                    width="150px"
-                                    alt="profile"
-                                />
-                            </div>
-                            <Form.Group>
-                                {/* <Form.Label htmlFor='email'>Email</Form.Label> */}
-                                <Form.Control
-                                    type='text'
-                                    placeholder='Your email'
-                                    name='email'
-                                    onChange={handleInputChange}
-                                    value={userFormData.email}
-                                    required
-                                />
-                                <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
-                            </Form.Group>
-                            <Form.Group>
-                                {/* <Form.Label htmlFor='password'>Password</Form.Label> */}
-                                <Form.Control
-                                    type='password'
-                                    placeholder='Your password'
-                                    name='password'
-                                    onChange={handleInputChange}
-                                    value={userFormData.password}
-                                    required
-                                />
-                                <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
-                            </Form.Group>
-                            <Button
+        <div style={main.login}>
+            <div style={main.row}>
+                <div className="card my-0" style={main.card}>
+                    <Form noValidate validated={validated} onSubmit={handleFormSubmit} style={main.form}>
+                        <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+                            Something went wrong with your login credentials!
+                        </Alert>
+                        <div className="text-center">
+                            <img
+                                src={loginpatient}
+                                className="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                                width="150px"
+                                alt="profile"
+                            />
+                        </div>
+                        <Form.Group>
+                            {/* <Form.Label htmlFor='email'>Email</Form.Label> */}
+                            <Form.Control
+                                type='text'
+                                placeholder='Your email'
+                                name='email'
+                                onChange={handleInputChange}
+                                value={userFormData.email}
+                                required
+                            />
+                            <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+                        </Form.Group>
+                        <Form.Group>
+                            {/* <Form.Label htmlFor='password'>Password</Form.Label> */}
+                            <Form.Control
+                                type='password'
+                                placeholder='Your password'
+                                name='password'
+                                onChange={handleInputChange}
+                                value={userFormData.password}
+                                required
+                            />
+                            <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+                            <Button 
+                                style={main.epbutton}
                                 disabled={!(userFormData.email && userFormData.password)}
                                 type='submit'
                                 variant='success'>
                                 Submit
                             </Button>
-                            <div id="emailHelp" className="form-text text-center mb-5 text-dark">
-                                Not Registered?{" "}
-                                <a href="/signup" className="login-link text-dark fw-bold">
-                                    Sign up instead
-                                </a>
-                            </div>
-                        </Form>
-                    </div>
+                        </Form.Group>
+                        <div id="emailHelp" className="form-text text-center mb-5 text-dark" >
+                            Not Registered?{" "}
+                            <a href="/signup" className="login-link text-dark fw-bold">
+                                Sign up instead
+                            </a>
+                        </div>
+                    </Form>
                 </div>
             </div>
         </div>

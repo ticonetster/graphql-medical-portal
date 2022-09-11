@@ -8,26 +8,32 @@ export const singuppatient = SignupPatientImage;
 export const logindoctor = LoginDoctorImage;
 export const singupdoctor = SignupDoctorImage;
 
-export const LoginStyles = {
-    container: {
-        paddingRight: "15px",
-        paddingLeft: "15px",
-        marginRight: "auto",
-        marginLeft: "auto",
-        width: "100%",
-        color: "black",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
+export const main = {
+    login: {
+        display: 'flex',
+        margin: '5rem 0 5rem 0 !important',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
+    // container: {
+    //     paddingRight: "15px",
+    //     paddingLeft: "15px",
+    //     marginRight: "auto",
+    //     marginLeft: "auto",
+    //     width: "100%",
+    //     color: "black",
+    //     display: "flex",
+    //     flexDirection: "column",
+    //     justifyContent: "center",
+    // },
     row: {
         display: "flex",
         flexWrap: "wrap",
-        marginRight: "-15px",
-        marginLeft: "-15px",
+        // marginRight: "-15px",
+        // marginLeft: "-15px",
         justifyContent: "center",
-        marginTop: "200px",
-        marginBottom: "200px",
+        marginTop: "5rem",
+        marginBottom: "5rem",
     },
     card: {
         position: "relative",
@@ -43,7 +49,9 @@ export const LoginStyles = {
         backgroundColor: "#9fafdf",
         padding: "15px 15px 15px 15px",
     },
-
+    form: {
+        padding: "2rem"
+    },
     epbutton: {
         display: "block",
         width: "100%",
@@ -55,6 +63,7 @@ export const LoginStyles = {
         backgroundClip: "padding-box",
         borderRadius: ".25rem",
         transition: "border-color .15s ease-in-out,box-shadow .15s ease-in-out",
+        marginTop: "1rem"
     },
 };
 
