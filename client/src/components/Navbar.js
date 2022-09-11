@@ -55,6 +55,29 @@ const NavBar = () => {
                     </i>
 
                     <ul style={{ left: open ? "0" : "-100vw" }}>
+                    {Auth.loggedIn() ? (
+                        (Auth.getEntity() === "patient") ? (
+                            <li>
+                                <Link
+                                    to="/patients-dashboard"
+                                    onClick={handleClose}
+                                    style={{ color: location.pathname === "/patients-dashboard" && "#afbdc9" }}
+                                >
+                                    Dashboard
+                                </Link>
+                            </li>
+                        ) : (
+                            <li>
+                                <Link
+                                    to="/doctors-dashboard"
+                                    onClick={handleClose}
+                                    style={{ color: location.pathname === "/doctors-dashboard" && "#afbdc9" }}
+                                >
+                                    Dashboard
+                                </Link>
+                            </li>
+                        )
+                    ) : (
                         <li>
                             <Link
                                 to="/"
@@ -64,6 +87,8 @@ const NavBar = () => {
                                 Home
                             </Link>
                         </li>
+                    )}
+                        
                         <li>
                             <Link
                                 to="/about"
