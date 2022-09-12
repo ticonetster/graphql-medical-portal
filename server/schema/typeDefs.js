@@ -38,7 +38,7 @@ const typeDefs = gql`
         currentUser: User
         me: Patients
         patients: [Patients]
-        mydoctors: [Doctors]
+        doctors: [Doctors]
         patient(username: String!): Patients
         doctor(username: String!): Doctors
         getDoctors:[Doctors]

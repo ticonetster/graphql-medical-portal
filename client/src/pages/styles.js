@@ -7,6 +7,7 @@ import AddAppointmentsImage from "../assets/add_appointments.png";
 import HistoryImage from "../assets/history.png";
 import EditImage from "../assets/edit.png";
 import ChatLoginImage from "../assets/images/chat/chat3.png";
+import DoctorProfileImage from "../assets/login_doctor.png";
 
 export const loginpatient = LoginPatientImage;
 export const singuppatient = SignupPatientImage;
@@ -17,6 +18,7 @@ export const addappointments = AddAppointmentsImage;
 export const history = HistoryImage;
 export const edit = EditImage;
 export const chatlogin = ChatLoginImage;
+export const doctorProfile = DoctorProfileImage;
 
 
 export const main = {
@@ -221,10 +223,10 @@ export const chat = {
         height: "40px",
         flex: 1
     },
-    ".join-container": { 
+    ".join-container": {
         // maxWidth: "500px", 
         // margin: "80px auto", 
-        color: "#fff" 
+        color: "#fff"
     },
     ".join-header": {
         textAlign: "center",
@@ -234,9 +236,9 @@ export const chat = {
         borderTopLeftRadius: "5px",
         borderTopRightRadius: "5px"
     },
-    ".join-main": { 
-        padding: "1rem", 
-        background: "#4169e1" 
+    ".join-main": {
+        padding: "1rem",
+        background: "#4169e1"
     },
     ".join-main p": { marginBottom: "20px" },
     ".join-main .form-control": { marginBottom: "20px" },

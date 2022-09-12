@@ -1,59 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useQuery } from "react-query";
-import { GET_PATIENT_EMAIL_BY_ID } from '../utils/queries';
+import { useQuery } from "@apollo/client";
+import { GET_PATIENT_EMAIL_BY_ID, GET_ALL_DOCTORS } from '../utils/queries';
 import Auth from '../utils/auth';
 import ChatLogin from "./Chat/ChatLogin";
 import "../css/style.css";
 
-import { dashboard, appointments, addappointments, history, edit, chatlogin } from './styles';
+import { dashboard, appointments, addappointments, history, edit, chatlogin, doctorProfile } from './styles';
 
-const styles = {
-  container: {
-    paddingRight: "15px",
-    paddingLeft: "15px",
-    marginRight: "auto",
-    marginLeft: "auto",
-    width: "100%",
-    color: "black",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-  },
-  row: {
-    display: "flex",
-    flexWrap: "wrap",
-    marginRight: "-15px",
-    marginLeft: "-15px",
-    justifyContent: "center",
-    marginTop: "200px",
-    marginBottom: "200px",
-  },
-  card: {
-    position: "relative",
-    display: "flex",
-    flexDirection: "column",
-    minWidth: "0",
-    wordWrap: "break-word",
-    backgroundColor: "#9fafdf",
-    backgroundClip: "border-box",
-    borderRadius: ".25rem",
-  },
-  cardbody: {
-    backgroundColor: "#9fafdf",
-    padding: "15px 15px 15px 15px",
-  },
-  img: {
-    height: "20px",
-    width: "20px",
-  },
-  alignment: {
-    display: "flex",
-    flexDirection: "column",
-    alignContent: "center",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-};
 
 const DashboardPatients = (props) => {
   const {loading, error, data} = useQuery(GET_ALL_DOCTORS);
@@ -63,13 +16,16 @@ const DashboardPatients = (props) => {
   if (error) return `Error! ${error.message}`;
 
   return (
-    <div style={styles.container}>
-      <h2 className="profileTitle">Welcome <strong>PATIENT NAME</strong>!
-      </h2>
-      <p>
-        This is a secure medical portal to help connect and provide you with
-        access and tools to assist you with your medical needs
-      </p>
+    <div style={dashboard.container}>
+      <header style={dashboard.header}>
+        <h2>
+          Welcome <strong>PATIENT NAME</strong>!
+        </h2>
+        <p>
+          This is a secure medical portal to help connect and provide you with
+          access and tools to assist you with your medical needs
+        </p>
+      </header>
       {/*<div>{JSON.stringify(data)}</div>*/}
       {data?.getDoctors?.map(item => (
         <div className="card mb-3 flex-row" key={item._id}>
@@ -91,7 +47,7 @@ const DashboardPatients = (props) => {
       ))}
       {/* HELP WITH THE GRAPHQL </div> */}
       
-      <div style={styles.row}>
+      <div style={dashboard.row}>
         <div className="col-sm col-xs-12">
           <div style={dashboard.card}>
             <div style={dashboard.alignment}>

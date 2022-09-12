@@ -20,7 +20,7 @@ const resolvers = {
         test: async () => {
             return 'test success!';
         },
-        getDoctors: async (parent, { email, password }) => {
+        getDoctors: async () => {
             const doctors = await Doctors.find()
             return doctors
         },
@@ -49,7 +49,6 @@ const resolvers = {
             }
 
             const token = signToken(patient);
-            console.log("patient::", patient)
             return { token, patient };
         },
 

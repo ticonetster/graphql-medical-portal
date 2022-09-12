@@ -39,8 +39,6 @@ export const LOGIN_DOCTORS = gql`
                 firstName
                 lastName
                 username
-                firstName
-                lastName
                 email
             }
         }

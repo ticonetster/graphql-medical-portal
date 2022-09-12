@@ -140,6 +140,7 @@ export const ChatLogin = () => {
                             onChange={handleInputChange}
                             value={userFormData.room} // TODO need to grab info pass to chat room
                             style={{ marginBottom: "1rem" }}>
+                            <option value="">Select a room...</option>
                             <option value="DoctorRoom">Doctor's Room</option>
                             <option value="TechSupport">Technical Support</option>
                             <option value="AppointmentSupport">Appointment Support</option>
