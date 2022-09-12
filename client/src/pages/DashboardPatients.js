@@ -1,5 +1,8 @@
-import React from "react";
-
+import React, { useState, useEffect } from 'react';
+import { useQuery } from "@apollo/client";
+import { GET_PATIENT_EMAIL_BY_ID, GET_ALL_DOCTORS } from '../utils/queries';
+import Auth from '../utils/auth';
+import ChatLogin from "./Chat/ChatLogin";
 import "../css/style.css";
 
 import appointments from "../assets/appointments.png";
@@ -101,13 +104,13 @@ const DashboardPatients = (props) => {
             </div>
           </div>
         </div>
-      ))}
+      ))} */}
       {/* HELP WITH THE GRAPHQL </div> */}
       
-      <div style={styles.row}>
+      <div style={dashboard.row}>
         <div className="col-sm col-xs-12">
-          <div style={styles.card}>
-            <div style={styles.alignment}>
+          <div style={dashboard.card}>
+            <div style={dashboard.alignment}>
               <img
                 src={appointments}
                 alt="image_of_appointments"
@@ -123,7 +126,7 @@ const DashboardPatients = (props) => {
                   className="edit-history-link-text"
                 >
                   <img
-                    style={styles.img}
+                    style={dashboard.img}
                     alt="upcoming_appointments"
                     className="edit-history-link"
                     src={addappointments}
@@ -135,7 +138,7 @@ const DashboardPatients = (props) => {
               <strong>FOR EACH APPOINTMENT</strong>
               <div
                 className="col-sm col-xs-12 appointmentcard"
-                style={styles.card}
+                style={dashboard.card}
               >
                 <p className="card-text">
                   Dr. <strong>DOCTOR NAME</strong> <br></br> at{" "}
@@ -152,8 +155,8 @@ const DashboardPatients = (props) => {
 
             {/* Patient History */}
             <div className="col-sm col-xs-12">
-              <div className="card" style={styles.card}>
-                <div style={styles.alignment}>
+              <div className="card" style={dashboard.card}>
+                <div style={dashboard.alignment}>
                   <img
                     src={history}
                     alt="history alt"
@@ -162,7 +165,7 @@ const DashboardPatients = (props) => {
                   <h5 className="card-title">
                     Patient History{" "}
                     <a href="/history" className="edit-history-link-text">
-                      <img style={styles.img} src={edit} alt="edit img" />
+                      <img style={dashboard.img} src={edit} alt="edit img" />
                     </a>
                   </h5>
                   <h6 className="card-subtitle mb-2 text-muted">
@@ -184,16 +187,19 @@ const DashboardPatients = (props) => {
                 </div>
               </div>
             </div>
-            <div style={styles.row} className="row">
-              <div className="col-sm col-xs-12">
-                <div className="card" style={styles.card}>
-                  <div style={styles.alignment}>
-                    <h5 className="card-title">Chat Here!</h5>
-                    <div className="col-sm col-xs-12">
-                      <p className="card-text">
-                        <strong>CHAT LOGIN</strong>
-                      </p>
-                    </div>
+            <div style={dashboard.row} className="row">
+              <div className="card" style={dashboard.card}>
+                <div style={dashboard.alignment}>
+                  <img
+                    src={chatlogin}
+                    alt="image_of_appointments"
+                    className="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                    width="200px"
+                  />
+                  {/* <h5 className="card-title">Chat Here!</h5> */}
+
+                  <div className="col-sm col-xs-12">
+                    <ChatLogin />
                   </div>
                 </div>
               </div>

@@ -7,8 +7,28 @@ const typeDefs = gql`
         firstName: String
         lastName: String
         email: String
+        gender : String
+        appointments: [Appointments]
+        primarycareteam: [Doctors]
+        history: History
     }   
     
+    type Appointments {
+        status: String
+        concern : String
+        dateTime: String
+        patient: Patients
+        doctor : Doctors
+    }
+
+    type History {
+        height: String
+        weight: String
+        allergies: String
+        medications: String
+        data: String
+    }
+
     type AuthPatients {
         token: ID!
         patient: Patients
@@ -47,10 +67,12 @@ const typeDefs = gql`
         currentUser: User
         me: Patients
         patients: [Patients]
-        mydoctors: [Doctors]
+        doctors: [Doctors]
         patient(username: String!): Patients
         doctor(username: String!): Doctors
         getDoctors:[Doctors]
+
+        getPatientEmailByID(_id: String!): Patients
     }
 
     type Mutation {

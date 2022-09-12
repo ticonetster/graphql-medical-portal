@@ -1,4 +1,4 @@
-//import gql from 'graphql-tag';
+// import gql from 'graphql-tag';
 import { gql } from '@apollo/client';
 
 /* const getPatient = gql`
@@ -31,6 +31,37 @@ import { gql } from '@apollo/client';
     }
 }`
  */
+
+// const GET_PATIENT_EMAIL_BY_ID = gql`
+//     query GetPatientEmailByID ($_id: String!) {
+//         getPatientEmailByID (_id: $_id) 
+//         {
+//             email
+//             username
+//             firstName
+//             lastName
+//             gender
+            // appointments {
+            //     status
+            // }
+            // primarycareteam {
+            //     email
+            // }
+            // history{
+            //     allergies
+            // }
+//         }
+//     }
+// `
+
+// const GET_PATIENT_EMAIL_BY_ID = gql`
+// query GetPatientEmailByID {
+//     getPatientEmailByID (_id: "631e428eba80966864550375") 
+//     {
+//         email
+//     }
+// }
+
 const getDoctor = gql`
 {
     me{
@@ -48,7 +79,7 @@ const getDoctor = gql`
     }
 }`
 
-const GET_ALL_DOCTORS = gql `
+const GET_ALL_DOCTORS = gql`
     query GetDoctors{
         getDoctors{
             _id
@@ -66,6 +97,15 @@ const GET_PATIENT = gql `
             email
             firstName
             lastName
+            appointments {
+                status
+            }
+            primarycareteam {
+                email
+            }
+            history{
+                allergies
+            }
         }
     }
 `

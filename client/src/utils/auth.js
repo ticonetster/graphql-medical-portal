@@ -34,6 +34,7 @@ class AuthService {
 
     login(idToken, entity) {
         // Saves user token to localStorage
+        console.log(idToken, entity)
         localStorage.setItem('id_token', idToken);
         if (entity === "doctor"){
             window.location.assign('/doctors-dashboard');

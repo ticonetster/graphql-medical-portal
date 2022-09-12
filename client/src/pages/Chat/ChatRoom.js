@@ -5,7 +5,7 @@ import { chat } from '../styles';
 // import chatMain from "../../assets/images/chat/chat3.png";
 import '../../css/chat.css';
 
-export const ChatLogin = () => {
+export const ChatRoom = () => {
     // set initial form state
     const [userFormData, setUserFormData] = useState({ username: '', room: '' });
 
@@ -80,23 +80,24 @@ export const ChatLogin = () => {
     return (
 
         <div style={chat['.chat-container']}>
-            <header className="chat-header">
-                <h1><i className="fas fa-smile"></i> Medical Portal Chat Support</h1>
+            <header style={chat['.chat-header']}>
+                <h3><i className="fas fa-smile"></i> Medical Portal Chat Support</h3>
                 <a id="leave-btn" className="btn">Leave Room</a>
             </header>
-            <main className="chat-main">
-                <div className="chat-sidebar">
+            <main style={chat['.chat-main']}>
+                <div className="chat-sidebar" >
                     <h3><i className="fas fa-comments"></i> Room Name:</h3>
-                    <h2 id="room-name"></h2>
+                    <h2 id="room-name" style={chat['.chat-sidebar h2']}></h2>
                     <h3><i className="fas fa-users"></i> Users</h3>
                     <ul id="users"></ul>
                 </div>
-                <div className="chat-messages"></div>
+                <div style={chat['.chat-messages']}></div>
             </main>
             <div className="chat-form-container">
                 <form id="chat-form">
                     <input id="msg" type="text" placeholder="Enter Message" required />
-                    <button className="btn"><i className="fas fa-paper-plane"></i> Send</button>
+                    {/* <button className="btn"><i className="fas fa-paper-plane"></i> Send</button> */}
+                    <button className="btn">Send</button>
                 </form>
             </div>
         </div>
@@ -182,4 +183,4 @@ export const ChatLogin = () => {
     )
 }
 
-export default ChatLogin;
+export default ChatRoom;
