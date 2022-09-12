@@ -107,3 +107,12 @@ a {
         float: none;
     }
 }
+
+  .card-img-left{
+    width: 150px;
+    height: auto;
+  }
+
+  .profileTitle {
+    color: black !important;
+  }

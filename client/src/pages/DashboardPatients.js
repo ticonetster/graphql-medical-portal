@@ -6,6 +6,7 @@ import appointments from "../assets/appointments.png";
 import addappointments from "../assets/add_appointments.png";
 import history from "../assets/history.png";
 import edit from "../assets/edit.png";
+import doctorProfile from "../assets/login_doctor.png";
 
 import { GET_ALL_DOCTORS } from '../utils/queries';
 import { useQuery} from '@apollo/client';
@@ -60,24 +61,40 @@ const styles = {
 
 const DashboardPatients = (props) => {
   const {loading, error, data} = useQuery(GET_ALL_DOCTORS);
-  //const patientData = data?.me || {};
   if (loading) {
     return <h2>LOADING...</h2>;
   }
   if (error) return `Error! ${error.message}`;
 
   return (
-    
     <div style={styles.container}>
-    <div>{JSON.stringify(data)}</div>
-      {/* HELP WITH THE GRAPHQL </div> */}
-      <h2 color="black !important">
-        Welcome <strong>PATIENT NAME</strong>!
+      <h2 className="profileTitle">Welcome <strong>PATIENT NAME</strong>!
       </h2>
       <p>
         This is a secure medical portal to help connect and provide you with
         access and tools to assist you with your medical needs
       </p>
+      {/*<div>{JSON.stringify(data)}</div>*/}
+      {data?.getDoctors?.map(item => (
+        <div className="card mb-3 flex-row" key={item._id}>
+          <div className="row no-gutters">
+            <div className="col-auto">
+              <img className="card-img-left" src={doctorProfile} alt="Card image cap"></img>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card-body">
+              <h5 className="card-title">{item.firstName}, {item.lastName}</h5>
+              <h6 className="card-subtitle mb-2 text-muted">Type of Doctor</h6>
+              <p className="card-text">{item.email}</p>
+              <a href="#" className="card-link">Make an Appointment</a>
+              <a href="#" className="card-link">Message</a>
+            </div>
+          </div>
+        </div>
+      ))}
+      {/* HELP WITH THE GRAPHQL </div> */}
+      
       <div style={styles.row}>
         <div className="col-sm col-xs-12">
           <div style={styles.card}>
