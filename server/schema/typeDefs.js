@@ -20,7 +20,7 @@ const typeDefs = gql`
         lastName: String
         username: String
         email: String
-    }   
+    }
 
     type AuthDoctors {
         token: ID!
@@ -38,7 +38,7 @@ const typeDefs = gql`
         currentUser: User
         me: Patients
         patients: [Patients]
-        doctors: [Doctors]
+        mydoctors: [Doctors]
         patient(username: String!): Patients
         doctor(username: String!): Doctors
         getDoctors:[Doctors]
