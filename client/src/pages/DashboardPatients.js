@@ -1,93 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from "@apollo/client";
-import { GET_PATIENT_EMAIL_BY_ID, GET_ALL_DOCTORS } from '../utils/queries';
+import { GET_PATIENT_EMAIL_BY_ID, GET_ALL_DOCTORS, GET_PATIENT } from '../utils/queries';
 import Auth from '../utils/auth';
 import ChatLogin from "./Chat/ChatLogin";
 import "../css/style.css";
 
-import appointments from "../assets/appointments.png";
-import addappointments from "../assets/add_appointments.png";
-import history from "../assets/history.png";
-import edit from "../assets/edit.png";
-import doctorProfile from "../assets/login_doctor.png";
-
-import { GET_ALL_DOCTORS } from '../utils/queries';
-import { GET_PATIENT } from '../utils/queries';
-import { useQuery} from '@apollo/client';
-import Auth from '../utils/auth';
-const styles = {
-  container: {
-    paddingRight: "15px",
-    paddingLeft: "15px",
-    marginRight: "auto",
-    marginLeft: "auto",
-    width: "100%",
-    color: "black",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-  },
-  row: {
-    display: "flex",
-    flexWrap: "wrap",
-    marginRight: "-15px",
-    marginLeft: "-15px",
-    justifyContent: "center",
-    marginTop: "200px",
-    marginBottom: "200px",
-  },
-  card: {
-    position: "relative",
-    display: "flex",
-    flexDirection: "column",
-    minWidth: "0",
-    wordWrap: "break-word",
-    backgroundColor: "#9fafdf",
-    backgroundClip: "border-box",
-    borderRadius: ".25rem",
-  },
-  cardbody: {
-    backgroundColor: "#9fafdf",
-    padding: "15px 15px 15px 15px",
-  },
-  img: {
-    height: "20px",
-    width: "20px",
-  },
-  alignment: {
-    display: "flex",
-    flexDirection: "column",
-    alignContent: "center",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-};
+import { dashboard, appointments, addappointments, history, edit, chatlogin, doctorProfile } from './styles';
 
 
 const DashboardPatients = (props) => {
-  const {loading: loadingDocs, error: DocError, data: doctorData} = useQuery(GET_ALL_DOCTORS);
   const userData = Auth.getProfile();
+  const {loading: loadingDocs, error: DocError, data: doctorData} = useQuery(GET_ALL_DOCTORS);
+  const {loading:l, error:e, data:d} = useQuery(GET_PATIENT_EMAIL_BY_ID, {variables: { _id: "631e424c632b1c3c14bd15f2" }});
   const {loading: loadingPatient, error: patientError, data: patientData} = useQuery(GET_PATIENT, {variables: {_id: userData.data._id}});
+  console.log(loadingPatient,patientError,patientData, "JAVI")
+  console.log(d,e, l, "ELLIOTT")
+  
   if (loadingDocs) {
-    return <h2>LOADING Doctors...</h2>;
+    return <h2>LOADING...</h2>;
   }
-  if (DocError) return `Doctors Error! ${DocError.message}`;
-
-  if (loadingPatient) {
-    return <h2>LOADING Patient Information...</h2>;
-  }
-  if (patientError) return `Patient Error! ${patientError.message}`;
+  if (DocError) return `Error! ${DocError.message}`;
 
   return (
-    <div style={styles.container}>
-      <h2 className="profileTitle">Welcome <strong>{patientData.getPatient.lastName}</strong>!
-      </h2>
-      <p>
-        This is a secure medical portal to help connect and provide you with
-        access and tools to assist you with your medical needs
-      </p>
-      {/*<div>{JSON.stringify(data)}</div>*/}
-      {doctorData?.getDoctors?.map(item => (
+    <div style={dashboard.container}>
+      <header style={dashboard.header}>
+        <h1>
+          Welcome <strong>PATIENT NAME</strong>!
+        </h1>
+        <p>
+          This is a secure medical portal to help connect and provide you with
+          access and tools to assist you with your medical needs
+        </p>
+      </header>
+      {/* <div>{JSON.stringify(data)}</div> */}
+      {/* {data?.getDoctors?.map(item => (
         <div className="card mb-3 flex-row" key={item._id}>
           <div className="row no-gutters">
             <div className="col-auto">

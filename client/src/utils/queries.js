@@ -1,58 +1,57 @@
 // import gql from 'graphql-tag';
 import { gql } from '@apollo/client';
 
-/* const getPatient = gql`
-{
-    me{
-        firstName
-        lastName
-        email
-        address
-        gender
-        appointments{
-            status 
-            concern 
-            dateTime
-            doctor
-            patient
-        }
-        primarycareteam{
-            name
-            gender
-            email
-        }
-        history{
-            height
-            weight
-            allergies
-            medications
-            data
-        }
-    }
-}`
- */
-
-// const GET_PATIENT_EMAIL_BY_ID = gql`
-//     query GetPatientEmailByID ($_id: String!) {
-//         getPatientEmailByID (_id: $_id) 
-//         {
-//             email
-//             username
-//             firstName
-//             lastName
+// const getPatient = gql`
+// {
+//     me{
+//         firstName
+//         lastName
+//         email
+//         address
+//         gender
+//         appointments{
+//             status 
+//             concern 
+//             dateTime
+//             doctor
+//             patient
+//         }
+//         primarycareteam{
+//             name
 //             gender
-            // appointments {
-            //     status
-            // }
-            // primarycareteam {
-            //     email
-            // }
-            // history{
-            //     allergies
-            // }
+//             email
+//         }
+//         history{
+//             height
+//             weight
+//             allergies
+//             medications
+//             data
 //         }
 //     }
-// `
+// }`
+
+const GET_PATIENT_EMAIL_BY_ID = gql`
+    query GetPatientEmailByID ($_id: String!) {
+        getPatientEmailByID (_id: $_id) 
+        {
+            email
+            username
+            firstName
+            lastName
+            gender
+            appointments {
+                status
+            }
+            primarycareteam {
+                email
+            }
+            history{
+                allergies
+            }
+        }
+    }
+`
 
 // const GET_PATIENT_EMAIL_BY_ID = gql`
 // query GetPatientEmailByID {
@@ -89,6 +88,7 @@ const GET_ALL_DOCTORS = gql`
         }
     }
 `
+
 const GET_PATIENT = gql `
     query GetPatient($_id: String!){
         getPatient(_id: $_id){
@@ -97,18 +97,9 @@ const GET_PATIENT = gql `
             email
             firstName
             lastName
-            appointments {
-                status
-            }
-            primarycareteam {
-                email
-            }
-            history{
-                allergies
-            }
         }
     }
 `
 
 
-export { getDoctor, GET_ALL_DOCTORS, GET_PATIENT } 
+export { getDoctor, GET_ALL_DOCTORS, GET_PATIENT_EMAIL_BY_ID, GET_PATIENT } 

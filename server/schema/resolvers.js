@@ -24,24 +24,23 @@ const resolvers = {
             const doctors = await Doctors.find()
             return doctors
         },
+        getPatientEmailByID: async (parent, { _id }) => {
+            const patient = await Patients.findOne({ _id }).populate('appointments').populate('primarycareteam').populate('history');
+
+            if (!patient) {
+                throw new AuthenticationError(` Patient ID not found or invalid!`);
+            }
+
+            return patient
+        },
         getPatient: async (parent, args, context, info) => {
             //if (context.request.patients){
                 const patient = await Patients.findOne(context._id);
                 return patient
             //}
             //throw new AuthenticationError(` Patient ID not found or invalid!`);
-
+        }
     },
-
-            // getPatientEmailByID: async (parent, { _id }) => {
-        //     const patient = await Patients.findOne({ _id }).populate('appointments').populate('primarycareteam').populate('history');
-
-        //     if (!patient) {
-        //         throw new AuthenticationError(` Patient ID not found or invalid!`);
-        //     }
-
-        //     return patient
-        // }
     Mutation: {
         loginPatients: async (parent, { email, password }) => {
             const patient = await Patients.findOne({ email });

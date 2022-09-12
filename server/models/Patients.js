@@ -5,15 +5,15 @@ const patientsSchema = new Schema(
     {
         username: {
             type: String,
-            default: "unknown"
+            default: ""
         },
         firstName: {
             type: String,
-            default: "unknown"
+            default: ""
         },
         lastName: {
             type: String,
-            default: "unknown"
+            default: ""
         },
         gender: {
             type: String,

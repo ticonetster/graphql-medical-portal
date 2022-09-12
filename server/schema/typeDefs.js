@@ -52,6 +52,7 @@ const typeDefs = gql`
         email: String
     }
 
+
     type Patient {
         _id: ID!
         username: String
@@ -62,6 +63,9 @@ const typeDefs = gql`
 
     type Query {
         getPatient(_id:String!): Patient
+
+
+
         test: String
         testUser: Patients
         currentUser: User
@@ -71,7 +75,6 @@ const typeDefs = gql`
         patient(username: String!): Patients
         doctor(username: String!): Doctors
         getDoctors:[Doctors]
-
         getPatientEmailByID(_id: String!): Patients
     }
 
