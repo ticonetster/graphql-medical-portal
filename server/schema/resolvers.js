@@ -23,6 +23,15 @@ const resolvers = {
         getDoctors: async () => {
             const doctors = await Doctors.find()
             return doctors
+        },
+        getPatientEmailByID: async (parent, { _id }) => {
+            const patient = await Patients.findOne({ _id });
+
+            if (!patient) {
+                throw new AuthenticationError(` Patient ID not found or invalid!`);
+            }
+
+            return patient
         }
     },
     Mutation: {

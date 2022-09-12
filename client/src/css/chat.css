@@ -31,7 +31,7 @@ a {
 
 .btn {
 	cursor: pointer;
-	padding: 5px 15px;
+	/* padding: 5px 15px; */
 	background: var(--light-color);
 	color: var(--dark-color-a);
 	border: 0;
@@ -41,6 +41,8 @@ a {
 .form-control {
 	background-color: transparent;
 	border: none !important;
+	display: inline-block;
+	background-color: whitesmoke !important;
 }
 
 /* Chat Page */
@@ -76,10 +78,10 @@ a {
 }
 
 .chat-sidebar h2 {
-	font-size: 20px;
-	background: rgba(0, 0, 0, 0.1);
-	padding: 10px;
-	margin-bottom: 20px;
+	font-size: 20px !important;
+	/* background: rgba(0, 0, 0, 0.1);
+	padding: 10px; */
+	margin-bottom: 20px !important;
 }
 
 .chat-sidebar h3 {
@@ -123,6 +125,7 @@ a {
 
 .chat-form-container form {
 	display: flex;
+	align-items: center;
 }
 
 .chat-form-container input[type='text'] {

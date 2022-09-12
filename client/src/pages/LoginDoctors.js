@@ -8,7 +8,7 @@ import Auth from '../utils/auth';
 import { main, logindoctor } from './styles';
 
 
-const LoginDoctorForm = () => {
+const LoginDoctor = () => {
     // set initial form state
     const [userFormData, setUserFormData] = useState({ email: '', password: '' });
 
@@ -38,13 +38,11 @@ const LoginDoctorForm = () => {
             const { data } = await loginDoctors({
                 variables: { ...userFormData }
             });
-            console.log("here")
             console.log("loginDoctors::: ", data)
             Auth.login(data.loginDoctors.token, "doctor");
 
         } catch (e) {
-            console.error(error);
-            
+            console.error(e);
             setShowAlert(true);
         }
 
@@ -115,4 +113,4 @@ const LoginDoctorForm = () => {
     );
 };
 
-export default LoginDoctorForm;
+export default LoginDoctor;

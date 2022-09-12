@@ -1,62 +1,11 @@
-import React from "react";
-
+import React, { useState, useEffect } from 'react';
+import { useQuery } from "@apollo/client";
+import { GET_PATIENT_EMAIL_BY_ID, GET_ALL_DOCTORS } from '../utils/queries';
+import Auth from '../utils/auth';
+import ChatLogin from "./Chat/ChatLogin";
 import "../css/style.css";
 
-import appointments from "../assets/appointments.png";
-import addappointments from "../assets/add_appointments.png";
-import history from "../assets/history.png";
-import edit from "../assets/edit.png";
-import doctorProfile from "../assets/login_doctor.png";
-
-import { GET_ALL_DOCTORS } from '../utils/queries';
-import { useQuery} from '@apollo/client';
-const styles = {
-  container: {
-    paddingRight: "15px",
-    paddingLeft: "15px",
-    marginRight: "auto",
-    marginLeft: "auto",
-    width: "100%",
-    color: "black",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-  },
-  row: {
-    display: "flex",
-    flexWrap: "wrap",
-    marginRight: "-15px",
-    marginLeft: "-15px",
-    justifyContent: "center",
-    marginTop: "200px",
-    marginBottom: "200px",
-  },
-  card: {
-    position: "relative",
-    display: "flex",
-    flexDirection: "column",
-    minWidth: "0",
-    wordWrap: "break-word",
-    backgroundColor: "#9fafdf",
-    backgroundClip: "border-box",
-    borderRadius: ".25rem",
-  },
-  cardbody: {
-    backgroundColor: "#9fafdf",
-    padding: "15px 15px 15px 15px",
-  },
-  img: {
-    height: "20px",
-    width: "20px",
-  },
-  alignment: {
-    display: "flex",
-    flexDirection: "column",
-    alignContent: "center",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-};
+import { dashboard, appointments, addappointments, history, edit, chatlogin, doctorProfile } from './styles';
 
 
 const DashboardPatients = (props) => {
@@ -67,13 +16,16 @@ const DashboardPatients = (props) => {
   if (error) return `Error! ${error.message}`;
 
   return (
-    <div style={styles.container}>
-      <h2 className="profileTitle">Welcome <strong>PATIENT NAME</strong>!
-      </h2>
-      <p>
-        This is a secure medical portal to help connect and provide you with
-        access and tools to assist you with your medical needs
-      </p>
+    <div style={dashboard.container}>
+      <header style={dashboard.header}>
+        <h2>
+          Welcome <strong>PATIENT NAME</strong>!
+        </h2>
+        <p>
+          This is a secure medical portal to help connect and provide you with
+          access and tools to assist you with your medical needs
+        </p>
+      </header>
       {/*<div>{JSON.stringify(data)}</div>*/}
       {data?.getDoctors?.map(item => (
         <div className="card mb-3 flex-row" key={item._id}>
@@ -95,10 +47,10 @@ const DashboardPatients = (props) => {
       ))}
       {/* HELP WITH THE GRAPHQL </div> */}
       
-      <div style={styles.row}>
+      <div style={dashboard.row}>
         <div className="col-sm col-xs-12">
-          <div style={styles.card}>
-            <div style={styles.alignment}>
+          <div style={dashboard.card}>
+            <div style={dashboard.alignment}>
               <img
                 src={appointments}
                 alt="image_of_appointments"
@@ -114,7 +66,7 @@ const DashboardPatients = (props) => {
                   className="edit-history-link-text"
                 >
                   <img
-                    style={styles.img}
+                    style={dashboard.img}
                     alt="upcoming_appointments"
                     className="edit-history-link"
                     src={addappointments}
@@ -126,7 +78,7 @@ const DashboardPatients = (props) => {
               <strong>FOR EACH APPOINTMENT</strong>
               <div
                 className="col-sm col-xs-12 appointmentcard"
-                style={styles.card}
+                style={dashboard.card}
               >
                 <p className="card-text">
                   Dr. <strong>DOCTOR NAME</strong> <br></br> at{" "}
@@ -143,8 +95,8 @@ const DashboardPatients = (props) => {
 
             {/* Patient History */}
             <div className="col-sm col-xs-12">
-              <div className="card" style={styles.card}>
-                <div style={styles.alignment}>
+              <div className="card" style={dashboard.card}>
+                <div style={dashboard.alignment}>
                   <img
                     src={history}
                     alt="history alt"
@@ -153,7 +105,7 @@ const DashboardPatients = (props) => {
                   <h5 className="card-title">
                     Patient History{" "}
                     <a href="/history" className="edit-history-link-text">
-                      <img style={styles.img} src={edit} alt="edit img" />
+                      <img style={dashboard.img} src={edit} alt="edit img" />
                     </a>
                   </h5>
                   <h6 className="card-subtitle mb-2 text-muted">
@@ -175,16 +127,19 @@ const DashboardPatients = (props) => {
                 </div>
               </div>
             </div>
-            <div style={styles.row} className="row">
-              <div className="col-sm col-xs-12">
-                <div className="card" style={styles.card}>
-                  <div style={styles.alignment}>
-                    <h5 className="card-title">Chat Here!</h5>
-                    <div className="col-sm col-xs-12">
-                      <p className="card-text">
-                        <strong>CHAT LOGIN</strong>
-                      </p>
-                    </div>
+            <div style={dashboard.row} className="row">
+              <div className="card" style={dashboard.card}>
+                <div style={dashboard.alignment}>
+                  <img
+                    src={chatlogin}
+                    alt="image_of_appointments"
+                    className="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                    width="200px"
+                  />
+                  {/* <h5 className="card-title">Chat Here!</h5> */}
+
+                  <div className="col-sm col-xs-12">
+                    <ChatLogin />
                   </div>
                 </div>
               </div>

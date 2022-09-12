@@ -6,7 +6,6 @@ import { LOGIN_PATIENTS } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { main, loginpatient } from './styles';
 
-
 const LoginForm = () => {
     // set initial form state
     const [userFormData, setUserFormData] = useState({ email: '', password: '' });

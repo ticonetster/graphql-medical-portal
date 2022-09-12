@@ -1,4 +1,4 @@
-//import gql from 'graphql-tag';
+// import gql from 'graphql-tag';
 import { gql } from '@apollo/client';
 
 const getPatient = gql`
@@ -31,6 +31,15 @@ const getPatient = gql`
     }
 }`
 
+const GET_PATIENT_EMAIL_BY_ID = gql`
+    query GetPatientEmailByID ($_id: String!) {
+        getPatientEmailByID (_id: $String) 
+        {
+            email
+        }
+    }
+`
+
 const getDoctor = gql`
 {
     me{
@@ -48,7 +57,7 @@ const getDoctor = gql`
     }
 }`
 
-const GET_ALL_DOCTORS = gql `
+const GET_ALL_DOCTORS = gql`
     query GetDoctors{
         getDoctors{
             _id
@@ -60,4 +69,4 @@ const GET_ALL_DOCTORS = gql `
 `
 
 
-export { getPatient, getDoctor, GET_ALL_DOCTORS } 
+export { getPatient, getDoctor, GET_ALL_DOCTORS, GET_PATIENT_EMAIL_BY_ID } 
