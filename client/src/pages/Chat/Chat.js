@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-import Auth from '../../utils/auth';
+// import Auth from '../../utils/auth';
 import { chat } from '../styles';
-import chatMain from "../../assets/images/chat/chat3.png";
-// import '../css/chat.css';
+// import chatMain from "../../assets/images/chat/chat3.png";
+import '../../css/chat.css';
 
 export const ChatLogin = () => {
     // set initial form state
@@ -80,26 +80,105 @@ export const ChatLogin = () => {
     return (
 
         <div style={chat['.chat-container']}>
-            <header style={chat['.chat-header']}>
+            <header className="chat-header">
                 <h1><i className="fas fa-smile"></i> Medical Portal Chat Support</h1>
-                <a style={[chat. chat['.btn']]}>Leave Room</a>
+                <a id="leave-btn" className="btn">Leave Room</a>
             </header>
-            <main style={chat['.chat-main']}>
-                <div style={chat['.chat-sidebar']}>
+            <main className="chat-main">
+                <div className="chat-sidebar">
                     <h3><i className="fas fa-comments"></i> Room Name:</h3>
                     <h2 id="room-name"></h2>
                     <h3><i className="fas fa-users"></i> Users</h3>
                     <ul id="users"></ul>
                 </div>
-                <div style={chat['.chat-messages']}></div>
+                <div className="chat-messages"></div>
             </main>
-            <div style={chat['.chat-form-container']}>
+            <div className="chat-form-container">
                 <form id="chat-form">
-                    <input id="msg" type="text" placeholder="Enter Message" required autocomplete="off" />
-                    <button style={chat['.btn']}><i className="fas fa-paper-plane"></i> Send</button>
+                    <input id="msg" type="text" placeholder="Enter Message" required />
+                    <button className="btn"><i className="fas fa-paper-plane"></i> Send</button>
                 </form>
             </div>
         </div>
+
+
+        // <div style={chat['.join-container']}>
+        //     <header style={chat['.join-header']}>
+        //         <div style={chat[".logo"]}>
+        //             <img src={chatMain} alt="chat_logo" />
+        //         </div>
+
+
+
+        //         <h1><i classNameName="fas fa-smile"></i> Chat-Med</h1>
+        //     </header>
+        //     <main style={chat['.join-main']}>
+        //         {/* onAction="chat.html" | send to another page*/}
+        //         <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+        //             <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+        //                 Something went wrong with your selection!
+        //             </Alert>
+        //             <Form.Group>
+        //                 <Form.Label htmlFor='username'>Username</Form.Label>
+        //                 <Form.Control
+        //                     style={chat['.form-control']}
+        //                     type='text'
+        //                     placeholder='Enter username...'
+        //                     name='username'
+        //                     id='username'
+        //                     onChange={handleInputChange}
+        //                     value={userFormData.username}
+        //                     required
+        //                 />
+        //                 <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
+        //             </Form.Group>
+        //             <Form.Group style={chat['.chat-room-selection']}>
+        //                 <Form.Label htmlFor='room'>Room</Form.Label>
+        //                 {/* <Form.Control
+        //                     style={chat['.form-control']}
+        //                     onChange={handleInputChange}
+        //                     value={userFormData.room}
+        //                     required
+        //                 /> */}
+        //                 {/* <Form.Select label="room" id="room">
+        //                     <option>Open this select menu</option>
+        //                     <option value="DoctorRoom">DoctorRoom</option>
+        //                     <option value="TechSupport">TechSupport</option>
+        //                     <option value="AppointmentSupport">AppointmentSupport</option>
+        //                 </Form.Select> */}
+        //                 <Form.Control
+        //                     style={chat['.form-control']}
+        //                     type='text'
+        //                     placeholder='Selected room...'
+        //                     name='room'
+        //                     id='room'
+        //                     onChange={handleInputChange}
+        //                     value={userFormData.room}
+        //                     disable='true'
+        //                     required
+        //                 />
+        //                 <select
+        //                     name="room"
+        //                     id="room"
+        //                     onChange={handleInputChange}
+        //                     value={userFormData.room}
+        //                     style={{ marginBottom: "1rem" }}>
+        //                     <option value="DoctorRoom">Doctor's Room</option>
+        //                     <option value="TechSupport">Technical Support</option>
+        //                     <option value="AppointmentSupport">Appointment Support</option>
+        //                 </select>
+        //                 <Form.Control.Feedback type='invalid'>Room selection is required!</Form.Control.Feedback>
+        //                 <Button
+        //                     style={chat['.btn']}
+        //                     disabled={!(userFormData.username && userFormData.room)}
+        //                     type='submit'
+        //                     variant='success'>
+        //                     Join Chat
+        //                 </Button>
+        //             </Form.Group>
+        //         </Form>
+        //     </main>
+        // </div>
     )
 }
 

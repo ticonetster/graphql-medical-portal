@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useQuery } from '@apollo/react-hooks';
+import { GET_ALL_DOCTORS } from '../../utils/queries';
 import { Form, Button, Alert } from 'react-bootstrap';
 import Auth from '../../utils/auth';
 import { chat } from '../styles';
@@ -10,6 +12,9 @@ export const ChatLogin = () => {
     const [userFormData, setUserFormData] = useState({ username: '', room: '' });
 
     // const [loginPatients] = useMutation(LOGIN_PATIENTS); //TODO: get username from currentlogin
+    const { loading, error, data } = useQuery(GET_ALL_DOCTORS);
+    console.log(data);
+    
 
     // set state for form validation
     const [validated] = useState(false);
@@ -19,27 +24,29 @@ export const ChatLogin = () => {
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setUserFormData({ ...userFormData, [name]: value });
-        console.log({ name, value })
+        // console.log({ name, value })
 
-        // DEBUG check whos logged in
-        try {
-            let currentUser
-            const loggedIn = Auth.loggedIn();
-            if (loggedIn) {
-                currentUser = Auth.getProfile();
-                console.log(currentUser)
-                setUserFormData({
-                    username: currentUser.username,
-                    email: currentUser.email,
-                    _id: currentUser._id,
-                });
-            }
-            console.log(loggedIn, currentUser)
-        } catch (e) {
-            console.error(e);
-            setShowAlert(true);
-        }
-        // DEBUG check whos logged in
+        console.log("data: ", data)
+
+        // // DEBUG check whos logged in
+        // try {
+        //     let currentUser
+        //     const loggedIn = Auth.loggedIn();
+        //     if (loggedIn) {
+        //         currentUser = Auth.getProfile();
+        //         console.log(currentUser)
+        //         setUserFormData({
+        //             username: currentUser.username,
+        //             email: currentUser.email,
+        //             _id: currentUser._id,
+        //         });
+        //     }
+        //     console.log(loggedIn, currentUser)
+        // } catch (e) {
+        //     console.error(e);
+        //     setShowAlert(true);
+        // }
+        // // DEBUG check whos logged in
     };
 
     const handleFormSubmit = async (event) => {
