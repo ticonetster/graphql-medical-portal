@@ -7,55 +7,91 @@ import "../css/style.css";
 
 import { dashboard, appointments, addappointments, history, edit, chatlogin } from './styles';
 
+const styles = {
+  container: {
+    paddingRight: "15px",
+    paddingLeft: "15px",
+    marginRight: "auto",
+    marginLeft: "auto",
+    width: "100%",
+    color: "black",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+  },
+  row: {
+    display: "flex",
+    flexWrap: "wrap",
+    marginRight: "-15px",
+    marginLeft: "-15px",
+    justifyContent: "center",
+    marginTop: "200px",
+    marginBottom: "200px",
+  },
+  card: {
+    position: "relative",
+    display: "flex",
+    flexDirection: "column",
+    minWidth: "0",
+    wordWrap: "break-word",
+    backgroundColor: "#9fafdf",
+    backgroundClip: "border-box",
+    borderRadius: ".25rem",
+  },
+  cardbody: {
+    backgroundColor: "#9fafdf",
+    padding: "15px 15px 15px 15px",
+  },
+  img: {
+    height: "20px",
+    width: "20px",
+  },
+  alignment: {
+    display: "flex",
+    flexDirection: "column",
+    alignContent: "center",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+};
 
 const DashboardPatients = (props) => {
-
-  // set initial form state
-  const [userData, setUserData] = useState({ username: '', usertype: '' });
-
-  useEffect(() => {
-    try {
-      const loggedIn = Auth.loggedIn();
-      if (loggedIn) {
-        let currentUser = Auth.getProfile();
-        let userType = Auth.getEntity();
-        console.log("currentUser:: ", currentUser)
-        setUserData({
-          username: currentUser.data.username,
-          usertype: userType,
-        });
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  }, []) // <-- empty dependency array
-
-  // // Get user by id
-  // const id = "631ea28824d2fe092c413d9a"
-  // const { loading, error, data } = useQuery(GET_PATIENT_EMAIL_BY_ID, {
-  //   variables: id,
-  // });
-
-  // if (loading) return 'Loading...';
-  // if (error) return `Error! ${error.message}`;
-
-  // console.log("this is the data from fetch::: ", data);
-
-
+  const {loading, error, data} = useQuery(GET_ALL_DOCTORS);
+  if (loading) {
+    return <h2>LOADING...</h2>;
+  }
+  if (error) return `Error! ${error.message}`;
 
   return (
-    <div style={dashboard.container}>
+    <div style={styles.container}>
+      <h2 className="profileTitle">Welcome <strong>PATIENT NAME</strong>!
+      </h2>
+      <p>
+        This is a secure medical portal to help connect and provide you with
+        access and tools to assist you with your medical needs
+      </p>
+      {/*<div>{JSON.stringify(data)}</div>*/}
+      {data?.getDoctors?.map(item => (
+        <div className="card mb-3 flex-row" key={item._id}>
+          <div className="row no-gutters">
+            <div className="col-auto">
+              <img className="card-img-left" src={doctorProfile} alt="Card image cap"></img>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card-body">
+              <h5 className="card-title">{item.firstName}, {item.lastName}</h5>
+              <h6 className="card-subtitle mb-2 text-muted">Type of Doctor</h6>
+              <p className="card-text">{item.email}</p>
+              <a href="#" className="card-link">Make an Appointment</a>
+              <a href="#" className="card-link">Message</a>
+            </div>
+          </div>
+        </div>
+      ))}
       {/* HELP WITH THE GRAPHQL </div> */}
-      <header style={dashboard.header}>
-        <h1>
-          Welcome <strong>{userData.username}</strong>!
-        </h1>
-        <p>
-          This is a secure medical portal to help connect and provide you with
-          access and tools to assist you with your medical needs
-        </p>
-      </header>
-      <div style={dashboard.row}>
+      
+      <div style={styles.row}>
         <div className="col-sm col-xs-12">
           <div style={dashboard.card}>
             <div style={dashboard.alignment}>

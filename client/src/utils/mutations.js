@@ -36,6 +36,8 @@ export const LOGIN_DOCTORS = gql`
             token
             doctor {
                 _id
+                firstName
+                lastName
                 username
                 firstName
                 lastName
