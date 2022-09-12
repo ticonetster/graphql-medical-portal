@@ -18,9 +18,9 @@ const DashboardPatients = (props) => {
   return (
     <div style={dashboard.container}>
       <header style={dashboard.header}>
-        <h2>
+        <h1>
           Welcome <strong>PATIENT NAME</strong>!
-        </h2>
+        </h1>
         <p>
           This is a secure medical portal to help connect and provide you with
           access and tools to assist you with your medical needs
