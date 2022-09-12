@@ -10,7 +10,7 @@ import { dashboard, appointments, addappointments, history, edit, chatlogin, doc
 
 const DashboardPatients = (props) => {
 
-  const {loading, error, data} = useQuery(GET_PATIENT_EMAIL_BY_ID, {variables: { _id: "631e428eba80966864550375" }}
+  const {loading, error, data} = useQuery(GET_PATIENT_EMAIL_BY_ID, {variables: { _id: "631e424c632b1c3c14bd15f2" }}
   );
   console.log(data,error, loading)
   // if (loading) {

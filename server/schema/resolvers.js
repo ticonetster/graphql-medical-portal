@@ -25,7 +25,7 @@ const resolvers = {
             return doctors
         },
         getPatientEmailByID: async (parent, { _id }) => {
-            const patient = await Patients.findOne({ _id });
+            const patient = await Patients.findOne({ _id }).populate('appointments').populate('primarycareteam').populate('history');
 
             if (!patient) {
                 throw new AuthenticationError(` Patient ID not found or invalid!`);

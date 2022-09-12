@@ -36,6 +36,19 @@ const GET_PATIENT_EMAIL_BY_ID = gql`
         getPatientEmailByID (_id: $_id) 
         {
             email
+            username
+            firstName
+            lastName
+            gender
+            appointments {
+                status
+            }
+            primarycareteam {
+                email
+            }
+            history{
+                allergies
+            }
         }
     }
 `
