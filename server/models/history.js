@@ -13,15 +13,18 @@ const historySchema = new Schema({
     },
     allergies: {
         type: String,
-        required: true
+        required: true,
+        default:"unknown"
     },
     medications: {
         type: String,
-        required: true
+        required: true,
+        default: "unknown"
     },
     data: {
         type: String,
-        required: true
+        required: true,
+        default: ""
     },
     // patient_id: {
     //     type: String,

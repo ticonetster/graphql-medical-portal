@@ -5,19 +5,19 @@ const patientsSchema = new Schema(
     {
         username: {
             type: String,
-            default: null
+            default: ""
         },
         firstName: {
             type: String,
-            default: null
+            default: ""
         },
         lastName: {
             type: String,
-            default: null
+            default: ""
         },
         gender: {
             type: String,
-            default: null
+            default: "unknown"
         },
         email: {
             type: String,
@@ -27,7 +27,7 @@ const patientsSchema = new Schema(
         },
         address: {
             type: String,
-            default: null
+            default: ""
         },
         password: {
             type: String,

@@ -84,8 +84,12 @@ export const ChatLogin = () => {
         });
     };
 
+    if (loading) {
+        return <h2>LOADING...</h2>;
+      }
+
     return (
-        <div style={chat['.join-container']}>
+        (<div style={chat['.join-container']}>
             <header style={chat['.join-header']}>
                 <div style={chat[".logo"]}>
                     <img src={chatMain} alt="chat_logo" />
@@ -93,7 +97,7 @@ export const ChatLogin = () => {
 
 
 
-                <h1><i className="fas fa-smile"></i> Chat-Med</h1>
+                <h1><i className="fas fa-smile"></i> {data.getDoctors[0].username}</h1>
             </header>
             <main style={chat['.join-main']}>
                 {/* onAction="chat.html" | send to another page*/}
@@ -161,7 +165,7 @@ export const ChatLogin = () => {
                     </Form.Group>
                 </Form>
             </main>
-        </div>
+        </div>)
     )
 }
 

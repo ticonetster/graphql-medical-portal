@@ -5,19 +5,19 @@ const doctorsSchema = new Schema(
     {
         username: {
             type: String,
-            default: null
+            default: ""
         },
         firstName: {
             type: String,
-            default: null
+            default: ""
         },
         lastName: {
             type: String,
-            default: null
+            default: ""
         },
         gender: {
             type: String,
-            default: null
+            default: ""
         },
         email: {
             type: String,
@@ -37,7 +37,7 @@ const doctorsSchema = new Schema(
         ],
         usertype:{
             type:String,
-            default: null
+            default: "doctor"
         }
     },
     // set this to use virtual below
