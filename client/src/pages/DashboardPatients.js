@@ -7,6 +7,8 @@ import addappointments from "../assets/add_appointments.png";
 import history from "../assets/history.png";
 import edit from "../assets/edit.png";
 
+import { GET_ALL_DOCTORS } from '../utils/queries';
+import { useQuery} from '@apollo/client';
 const styles = {
   container: {
     paddingRight: "15px",
@@ -55,9 +57,19 @@ const styles = {
   },
 };
 
+
 const DashboardPatients = (props) => {
+  const {loading, error, data} = useQuery(GET_ALL_DOCTORS);
+  //const patientData = data?.me || {};
+  if (loading) {
+    return <h2>LOADING...</h2>;
+  }
+  if (error) return `Error! ${error.message}`;
+
   return (
+    
     <div style={styles.container}>
+    <div>{JSON.stringify(data)}</div>
       {/* HELP WITH THE GRAPHQL </div> */}
       <h2 color="black !important">
         Welcome <strong>PATIENT NAME</strong>!
