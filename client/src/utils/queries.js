@@ -1,7 +1,7 @@
 //import gql from 'graphql-tag';
 import { gql } from '@apollo/client';
 
-const getPatient = gql`
+/* const getPatient = gql`
 {
     me{
         firstName
@@ -30,7 +30,7 @@ const getPatient = gql`
         }
     }
 }`
-
+ */
 const getDoctor = gql`
 {
     me{
@@ -58,6 +58,17 @@ const GET_ALL_DOCTORS = gql `
         }
     }
 `
+const GET_PATIENT = gql `
+    query GetPatient($_id: String!){
+        getPatient(_id: $_id){
+            _id
+            username
+            email
+            firstName
+            lastName
+        }
+    }
+`
 
 
-export { getPatient, getDoctor, GET_ALL_DOCTORS } 
+export { getDoctor, GET_ALL_DOCTORS, GET_PATIENT } 

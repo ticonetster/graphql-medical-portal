@@ -32,7 +32,16 @@ const typeDefs = gql`
         email: String
     }
 
+    type Patient {
+        _id: ID!
+        username: String
+        email: String!
+        firstName: String
+        lastName: String
+    }
+
     type Query {
+        getPatient(_id:String!): Patient
         test: String
         testUser: Patients
         currentUser: User

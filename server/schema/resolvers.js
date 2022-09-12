@@ -23,6 +23,13 @@ const resolvers = {
         getDoctors: async () => {
             const doctors = await Doctors.find()
             return doctors
+        },
+        getPatient: async (parent, args, context, info) => {
+            //if (context.request.patients){
+                const patient = await Patients.findOne(context._id);
+                return patient
+            //}
+            //throw new AuthenticationError(` Patient ID not found or invalid!`);
         }
     },
     Mutation: {

@@ -9,7 +9,9 @@ import edit from "../assets/edit.png";
 import doctorProfile from "../assets/login_doctor.png";
 
 import { GET_ALL_DOCTORS } from '../utils/queries';
+import { GET_PATIENT } from '../utils/queries';
 import { useQuery} from '@apollo/client';
+import Auth from '../utils/auth';
 const styles = {
   container: {
     paddingRight: "15px",
@@ -60,22 +62,29 @@ const styles = {
 
 
 const DashboardPatients = (props) => {
-  const {loading, error, data} = useQuery(GET_ALL_DOCTORS);
-  if (loading) {
-    return <h2>LOADING...</h2>;
+  const {loading: loadingDocs, error: DocError, data: doctorData} = useQuery(GET_ALL_DOCTORS);
+  const userData = Auth.getProfile();
+  const {loading: loadingPatient, error: patientError, data: patientData} = useQuery(GET_PATIENT, {variables: {_id: userData.data._id}});
+  if (loadingDocs) {
+    return <h2>LOADING Doctors...</h2>;
   }
-  if (error) return `Error! ${error.message}`;
+  if (DocError) return `Doctors Error! ${DocError.message}`;
+
+  if (loadingPatient) {
+    return <h2>LOADING Patient Information...</h2>;
+  }
+  if (patientError) return `Patient Error! ${patientError.message}`;
 
   return (
     <div style={styles.container}>
-      <h2 className="profileTitle">Welcome <strong>PATIENT NAME</strong>!
+      <h2 className="profileTitle">Welcome <strong>{patientData.getPatient.lastName}</strong>!
       </h2>
       <p>
         This is a secure medical portal to help connect and provide you with
         access and tools to assist you with your medical needs
       </p>
       {/*<div>{JSON.stringify(data)}</div>*/}
-      {data?.getDoctors?.map(item => (
+      {doctorData?.getDoctors?.map(item => (
         <div className="card mb-3 flex-row" key={item._id}>
           <div className="row no-gutters">
             <div className="col-auto">
