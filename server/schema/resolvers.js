@@ -20,9 +20,18 @@ const resolvers = {
         test: async () => {
             return 'test success!';
         },
-        getDoctors: async () => {
+        getDoctors: async (parent, { email, password }) => {
             const doctors = await Doctors.find()
             return doctors
+        },
+        getPatientEmailByID: async (parent, { _id }) => {
+            const patient = await Patients.findOne({ _id });
+
+            if (!patient) {
+                throw new AuthenticationError(` Patient ID not found or invalid!`);
+            }
+
+            return patient
         }
     },
     Mutation: {
@@ -40,6 +49,7 @@ const resolvers = {
             }
 
             const token = signToken(patient);
+            console.log("patient::", patient)
             return { token, patient };
         },
 

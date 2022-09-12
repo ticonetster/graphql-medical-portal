@@ -1,20 +1,36 @@
-import React, { useState } from 'react';
-import { useQuery } from '@apollo/react-hooks';
-import { GET_ALL_DOCTORS } from '../../utils/queries';
+import React, { useState, useEffect } from 'react';
+// import { useQuery } from '@apollo/react-hooks';
+// import { GET_ALL_DOCTORS } from '../../utils/queries';
 import { Form, Button, Alert } from 'react-bootstrap';
 import Auth from '../../utils/auth';
 import { chat } from '../styles';
-import chatMain from "../../assets/images/chat/chat3.png";
+
 // import '../css/chat.css';
 
 export const ChatLogin = () => {
     // set initial form state
-    const [userFormData, setUserFormData] = useState({ username: '', room: '' });
+    const [userData, setUserData] = useState({ username: '', usertype: '' });
+    const [userFormData, setUserFormData] = useState({ room: '' });
 
-    // const [loginPatients] = useMutation(LOGIN_PATIENTS); //TODO: get username from currentlogin
-    const { loading, error, data } = useQuery(GET_ALL_DOCTORS);
-    console.log(data);
-    
+    useEffect(() => {
+        try {
+            const loggedIn = Auth.loggedIn();
+            if (loggedIn) {
+                let currentUser = Auth.getProfile();
+                let userType = Auth.getEntity();
+
+                setUserData({
+                    username: currentUser.data.username,
+                    usertype: userType,
+                });
+            }
+        } catch (e) {
+            console.error(e);
+            setShowAlert(true);
+        }
+    }, []) // <-- empty dependency array
+
+
 
     // set state for form validation
     const [validated] = useState(false);
@@ -24,29 +40,10 @@ export const ChatLogin = () => {
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setUserFormData({ ...userFormData, [name]: value });
-        // console.log({ name, value })
+        // setUserFormData({ state: false });
 
-        console.log("data: ", data)
+        // console.log(userFormData)
 
-        // // DEBUG check whos logged in
-        // try {
-        //     let currentUser
-        //     const loggedIn = Auth.loggedIn();
-        //     if (loggedIn) {
-        //         currentUser = Auth.getProfile();
-        //         console.log(currentUser)
-        //         setUserFormData({
-        //             username: currentUser.username,
-        //             email: currentUser.email,
-        //             _id: currentUser._id,
-        //         });
-        //     }
-        //     console.log(loggedIn, currentUser)
-        // } catch (e) {
-        //     console.error(e);
-        //     setShowAlert(true);
-        // }
-        // // DEBUG check whos logged in
     };
 
     const handleFormSubmit = async (event) => {
@@ -59,41 +56,36 @@ export const ChatLogin = () => {
             event.stopPropagation();
         }
 
-        try {
-            const loggedIn = Auth.loggedIn();
-            if (loggedIn) {
-                const currentUser = Auth.getProfile();
-                console.log(currentUser)
-                setUserFormData({
-                    username: currentUser.username,
-                    email: currentUser.email,
-                    _id: currentUser._id,
-                });
-            }
+        console.log("join is hit!")
+        // try {
+        //     const loggedIn = Auth.loggedIn();
+        //     if (loggedIn) {
+        //         const currentUser = Auth.getProfile();
+        //         console.log(currentUser)
+        //         setUserFormData({
+        //             username: currentUser.username,
+        //             email: currentUser.email,
+        //             _id: currentUser._id,
+        //         });
+        //     }
 
-            // change page to chat dashboard!
-        } catch (e) {
-            console.error(e);
-            setShowAlert(true);
-        }
+        //     // change page to chat dashboard!
+        // } catch (e) {
+        //     console.error(e);
+        //     setShowAlert(true);
+        // }
 
-        setUserFormData({
-            username: '',
-            email: '',
-            _id: '',
-        });
+        // setUserFormData({
+        //     username: '',
+        //     email: '',
+        //     _id: '',
+        // });
     };
 
     return (
         <div style={chat['.join-container']}>
             <header style={chat['.join-header']}>
-                <div style={chat[".logo"]}>
-                    <img src={chatMain} alt="chat_logo" />
-                </div>
-
-
-
-                <h1><i className="fas fa-smile"></i> Chat-Med</h1>
+                <h2>Chat Portal</h2>
             </header>
             <main style={chat['.join-main']}>
                 {/* onAction="chat.html" | send to another page*/}
@@ -106,11 +98,12 @@ export const ChatLogin = () => {
                         <Form.Control
                             style={chat['.form-control']}
                             type='text'
-                            placeholder='Enter username...'
+                            placeholder='Username...'
                             name='username'
                             id='username'
+                            disabled={true}
                             onChange={handleInputChange}
-                            value={userFormData.username}
+                            value={userData.username}
                             required
                         />
                         <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
@@ -132,11 +125,12 @@ export const ChatLogin = () => {
                         <Form.Control
                             style={chat['.form-control']}
                             type='text'
-                            placeholder='Selected room...'
+                            placeholder='Select Room...'
                             name='room'
                             id='room'
+                            disabled={true}
                             onChange={handleInputChange}
-                            value={userFormData.room}
+                            value={userFormData.room} // TODO need to grab info pass to chat room
                             disable='true'
                             required
                         />
@@ -144,7 +138,7 @@ export const ChatLogin = () => {
                             name="room"
                             id="room"
                             onChange={handleInputChange}
-                            value={userFormData.room}
+                            value={userFormData.room} // TODO need to grab info pass to chat room
                             style={{ marginBottom: "1rem" }}>
                             <option value="DoctorRoom">Doctor's Room</option>
                             <option value="TechSupport">Technical Support</option>
@@ -153,7 +147,8 @@ export const ChatLogin = () => {
                         <Form.Control.Feedback type='invalid'>Room selection is required!</Form.Control.Feedback>
                         <Button
                             style={chat['.btn']}
-                            disabled={!(userFormData.username && userFormData.room)}
+                            // disabled={userFormData.state}
+                            disabled={!(userFormData.room && userData.username)}
                             type='submit'
                             variant='success'>
                             Join Chat

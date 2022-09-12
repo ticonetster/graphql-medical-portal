@@ -3,7 +3,7 @@ import '../css/contact.css';
 import { validateEmail } from '../utils/helper';
 
 const Card = props => (
-    <div className="card">
+    <div className="card" style={{ width: '600px' }}>
         <div className="message-border"></div>
         {props.children}
     </div>

@@ -34,6 +34,7 @@ class AuthService {
 
     login(idToken, doctor) {
         // Saves user token to localStorage
+        console.log(idToken, doctor)
         localStorage.setItem('id_token', idToken);
         
         if (doctor){

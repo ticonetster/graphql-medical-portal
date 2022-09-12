@@ -39,13 +39,13 @@ const NavBar = () => {
                     <div style={navbar[".logo"]}>
                         <img src={healthcare} alt="healthcare" />
                     </div>
-                    <Link 
+                    <Link
                         to="/"
                         onClick={handleClose}
                         style={{ color: location.pathname === "/" && "#afbdc9" }}>
-                            <h1 style={navbar[".h1"]}>
-                                Medical Portal
-                            </h1>
+                        <h1 style={navbar[".h1"]}>
+                            Medical Portal
+                        </h1>
                     </Link>
                 </div>
                 <div className="list-wrapper">
@@ -63,40 +63,42 @@ const NavBar = () => {
                     </i>
 
                     <ul style={{ left: open ? "0" : "-100vw" }}>
-                        {/* <li>
-                    {Auth.loggedIn() ? (
-                        (Auth.getEntity() === "patient") ? (
-                            <li>
-                                <Link
-                                    to="/patients-dashboard"
-                                    onClick={handleClose}
-                                    style={{ color: location.pathname === "/patients-dashboard" && "#afbdc9" }}
-                                >
-                                    Dashboard
-                                </Link>
-                            </li>
+
+                        {/* Dashboard link when logged in */}
+                        {Auth.loggedIn() ? (
+                            (Auth.getEntity() === "patient") ? (
+                                <li>
+                                    <Link
+                                        to="/patients-dashboard"
+                                        onClick={handleClose}
+                                        style={{ color: location.pathname === "/patients-dashboard" && "#afbdc9" }}
+                                    >
+                                        Dashboard
+                                    </Link>
+                                </li>
+                            ) : (
+                                <li>
+                                    <Link
+                                        to="/doctors-dashboard"
+                                        onClick={handleClose}
+                                        style={{ color: location.pathname === "/doctors-dashboard" && "#afbdc9" }}
+                                    >
+                                        Dashboard
+                                    </Link>
+                                </li>
+                            )
                         ) : (
                             <li>
                                 <Link
-                                    to="/doctors-dashboard"
+                                    to="/"
                                     onClick={handleClose}
-                                    style={{ color: location.pathname === "/doctors-dashboard" && "#afbdc9" }}
+                                    style={{ color: location.pathname === "/" && "#afbdc9" }}
                                 >
-                                    Dashboard
+                                    Home
                                 </Link>
-                            </li>
-                        )
-                    ) : (
-                        <li>
-                            <Link
-                                to="/"
-                                onClick={handleClose}
-                                style={{ color: location.pathname === "/" && "#afbdc9" }}
-                            >
-                                Home
-                            </Link>
-                        </li> */}
-                        
+                            </li>)}
+
+                        {/* About link */}
                         <li>
                             <Link
                                 to="/about"
@@ -106,6 +108,8 @@ const NavBar = () => {
                                 About
                             </Link>
                         </li>
+
+                        {/* Contact link */}
                         <li>
                             <Link
                                 to="/contact"
@@ -116,7 +120,7 @@ const NavBar = () => {
                             </Link>
                         </li>
 
-                        {/* if user is logged in show logout button*/}
+                        {/* Logout Link::: if user is logged in show logout button*/}
                         {Auth.loggedIn() ? (
                             <li>
                                 <Link

@@ -5,7 +5,6 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { LOGIN_PATIENTS } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { main, loginpatient } from './styles';
-import '../css/style.css';
 
 const LoginForm = () => {
     // set initial form state

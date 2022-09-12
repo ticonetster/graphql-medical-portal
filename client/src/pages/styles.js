@@ -2,11 +2,22 @@ import LoginPatientImage from "../assets/login_patient.png";
 import SignupPatientImage from "../assets/signup_patient.png";
 import LoginDoctorImage from "../assets/login_doctor.png";
 import SignupDoctorImage from "../assets/signup_doctor.png";
+import AppointmentsImage from "../assets/appointments.png";
+import AddAppointmentsImage from "../assets/add_appointments.png";
+import HistoryImage from "../assets/history.png";
+import EditImage from "../assets/edit.png";
+import ChatLoginImage from "../assets/images/chat/chat3.png";
 
 export const loginpatient = LoginPatientImage;
 export const singuppatient = SignupPatientImage;
 export const logindoctor = LoginDoctorImage;
 export const singupdoctor = SignupDoctorImage;
+export const appointments = AppointmentsImage;
+export const addappointments = AddAppointmentsImage;
+export const history = HistoryImage;
+export const edit = EditImage;
+export const chatlogin = ChatLoginImage;
+
 
 export const main = {
     login: {
@@ -33,6 +44,7 @@ export const main = {
         backgroundColor: "#9fafdf",
         backgroundClip: "border-box",
         borderRadius: ".25rem",
+        width: '600px'
     },
     cardbody: {
         backgroundColor: "#9fafdf",
@@ -56,6 +68,64 @@ export const main = {
     },
 };
 
+export const dashboard = {
+    container: {
+        paddingRight: "15px",
+        paddingLeft: "15px",
+        marginRight: "auto",
+        marginLeft: "auto",
+        width: "100%",
+        color: "black",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+    },
+    ".chat-image-pic": {
+        height: "200px",
+        width: "200px",
+        objectFit: "cover",
+    },
+    header: {
+        // color:"LightSlateGray",
+        textAlign: "center"
+    },
+    row: {
+        display: "flex",
+        flexWrap: "wrap",
+        // marginRight: "-15px",
+        // marginLeft: "-15px",
+        justifyContent: "center",
+        // marginTop: "200px",
+        // marginBottom: "200px",
+    },
+    card: {
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        minWidth: "0",
+        wordWrap: "break-word",
+        backgroundColor: "#9fafdf",
+        backgroundClip: "border-box",
+        borderRadius: ".25rem",
+
+    },
+    cardbody: {
+        backgroundColor: "#9fafdf",
+        padding: "15px 15px 15px 15px",
+    },
+    img: {
+        height: "20px",
+        width: "20px",
+    },
+    alignment: {
+        display: "flex",
+        flexDirection: "column",
+        alignContent: "center",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+};
+
 export const chat = {
     "@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap')": true,
     "*": { boxSizing: "border-box", margin: "0", padding: "0" },
@@ -67,11 +137,14 @@ export const chat = {
     },
     ul: { listStyle: "none" },
     a: { textDecoration: "none" },
+    h2: {
+        fontSize: "1rem"
+    },
     ".btn": {
         cursor: "pointer",
         padding: "5px 15px",
         background: "#28a745",
-        color: "#9fafdf",
+        color: "whitesmoke",
         border: "0",
         fontSize: "17px"
     },
@@ -87,7 +160,7 @@ export const chat = {
         overflow: "hidden"
     },
     ".chat-header": {
-        background: "#9fafdf",
+        background: "#667aff",
         color: "#fff",
         borderTopLeftRadius: "5px",
         borderTopRightRadius: "5px",
@@ -110,7 +183,7 @@ export const chat = {
         overflowY: "scroll"
     },
     ".chat-sidebar h2": {
-        fontSize: "20px",
+        fontSize: '20px',
         background: "rgba(0, 0, 0, 0.1)",
         padding: "10px",
         marginBottom: "20px"
@@ -139,7 +212,7 @@ export const chat = {
     ".chat-messages .message .meta span": { color: "#777" },
     ".chat-form-container": {
         padding: "20px 30px",
-        backgroundColor: "#9fafdf"
+        backgroundColor: "#667aff"
     },
     ".chat-form-container form": { display: "flex" },
     ".chat-form-container input[type='text']": {
@@ -148,15 +221,23 @@ export const chat = {
         height: "40px",
         flex: 1
     },
-    ".join-container": { maxWidth: "500px", margin: "80px auto", color: "#fff" },
+    ".join-container": { 
+        // maxWidth: "500px", 
+        // margin: "80px auto", 
+        color: "#fff" 
+    },
     ".join-header": {
         textAlign: "center",
-        padding: "20px",
+        // padding: "20px",
+        margin: "1rem 0 1rem 0",
         background: "#9fafdf",
         borderTopLeftRadius: "5px",
         borderTopRightRadius: "5px"
     },
-    ".join-main": { padding: "30px 40px", background: "#4169e1" },
+    ".join-main": { 
+        padding: "1rem", 
+        background: "#4169e1" 
+    },
     ".join-main p": { marginBottom: "20px" },
     ".join-main .form-control": { marginBottom: "20px" },
     ".join-main label": { display: "block", marginBottom: "5px" },

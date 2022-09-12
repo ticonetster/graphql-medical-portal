@@ -37,7 +37,8 @@ export const LOGIN_DOCTORS = gql`
             doctor {
                 _id
                 username
-                name
+                firstName
+                lastName
                 email
             }
         }
