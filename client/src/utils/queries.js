@@ -1,4 +1,5 @@
-import gql from 'graphql-tag';
+//import gql from 'graphql-tag';
+import { gql } from '@apollo/client';
 
 const getPatient = gql`
 {
@@ -50,7 +51,9 @@ const getDoctor = gql`
 const GET_ALL_DOCTORS = gql `
     query GetDoctors{
         getDoctors{
-            username
+            _id
+            firstName
+            lastName
             email
         }
     }
