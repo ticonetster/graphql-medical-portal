@@ -38,10 +38,7 @@ connection.once('open', async () => {
             "gender": "male",
             "email": "jakesmith@hospital.com",
             "password": "j@kesm1th",
-<<<<<<< HEAD
-=======
             "usertype": "doctor",
->>>>>>> 699853d406eebe9a2fdc148bebd7f901c1365a07
             "appointments":["631e42f136cc835430e2a24f"],
         },
         {
@@ -52,10 +49,7 @@ connection.once('open', async () => {
             "gender": "male",
             "email": "robbrown@hospital.com",
             "password": "r0bbr0wn",
-<<<<<<< HEAD
-=======
             "usertype": "doctor",
->>>>>>> 699853d406eebe9a2fdc148bebd7f901c1365a07
             "appointments":["631e42f136cc835430e2a250"],
         },
         {
@@ -86,12 +80,8 @@ connection.once('open', async () => {
             "address": "123 Main St",
             "appointments":["631e42f136cc835430e2a24f"],
             "primarycareteam": [doctorData[0]._id],
-<<<<<<< HEAD
-            "history": historyData[0]._id
-=======
             "history": historyData[0]._id,
             "usertype": "patient"
->>>>>>> 699853d406eebe9a2fdc148bebd7f901c1365a07
         },
         {
             "_id": "631e428eba80966864550375",
@@ -104,12 +94,8 @@ connection.once('open', async () => {
             "address": "123 Main St",
             "appointments":["631e42f136cc835430e2a250"],
             "primarycareteam": [doctorData[1]._id],
-<<<<<<< HEAD
-            "history": historyData[1]._id
-=======
             "history": historyData[1]._id,
             "usertype": "patient",
->>>>>>> 699853d406eebe9a2fdc148bebd7f901c1365a07
         }
     )
 

@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
- const getPatient = gql`
+const getPatient = gql`
 {
     me{
         firstName
@@ -8,18 +8,18 @@ import gql from 'graphql-tag';
         email
         address
         gender
-        appointments[{
+        appointments{
             status 
             concern 
             dateTime
             doctor
             patient
-        }]
-        primarycareteam[{
+        }
+        primarycareteam{
             name
             gender
             email
-        }]
+        }
         history{
             height
             weight
@@ -37,14 +37,24 @@ const getDoctor = gql`
         lastName
         email
         gender
-        appointments[{
+        appointments {
             status 
             concern 
             dateTime
             doctor
             patient
-        }]
+        }
     }
 }`
 
-export {getDoctor, getPatient} 
+const GET_ALL_DOCTORS = gql `
+    query GetDoctors{
+        getDoctors{
+            username
+            email
+        }
+    }
+`
+
+
+export { getPatient, getDoctor, GET_ALL_DOCTORS } 
