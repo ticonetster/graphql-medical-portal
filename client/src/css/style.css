@@ -57,7 +57,7 @@ body {
     border: none;
 }
 
-.appointmentcard{
+.appointmentcard {
     border-bottom: 1px black solid;
 
 }
@@ -69,7 +69,7 @@ body {
 }
 
 .btn-color:hover {
-    color:royalblue;
+    color: royalblue;
     transition: 0.7s;
 }
 
@@ -108,11 +108,11 @@ a {
     }
 }
 
-  .card-img-left{
+.card-img-left {
     width: 150px;
     height: auto;
-  }
+}
 
-  .profileTitle {
+.profileTitle {
     color: black !important;
-  }
+}
