@@ -33,12 +33,20 @@ const getPatient = gql`
 
 const GET_PATIENT_EMAIL_BY_ID = gql`
     query GetPatientEmailByID ($_id: String!) {
-        getPatientEmailByID (_id: $String) 
+        getPatientEmailByID (_id: $_id) 
         {
             email
         }
     }
 `
+
+// const GET_PATIENT_EMAIL_BY_ID = gql`
+// query GetPatientEmailByID {
+//     getPatientEmailByID (_id: "631e428eba80966864550375") 
+//     {
+//         email
+//     }
+// }
 
 const getDoctor = gql`
 {

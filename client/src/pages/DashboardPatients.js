@@ -9,11 +9,14 @@ import { dashboard, appointments, addappointments, history, edit, chatlogin, doc
 
 
 const DashboardPatients = (props) => {
-  const {loading, error, data} = useQuery(GET_ALL_DOCTORS);
-  if (loading) {
-    return <h2>LOADING...</h2>;
-  }
-  if (error) return `Error! ${error.message}`;
+
+  const {loading, error, data} = useQuery(GET_PATIENT_EMAIL_BY_ID, {variables: { _id: "631e428eba80966864550375" }}
+  );
+  console.log(data,error, loading)
+  // if (loading) {
+  //   return <h2>LOADING...</h2>;
+  // }
+  // if (error) return `Error! ${error.message}`;
 
   return (
     <div style={dashboard.container}>
@@ -26,8 +29,8 @@ const DashboardPatients = (props) => {
           access and tools to assist you with your medical needs
         </p>
       </header>
-      {/*<div>{JSON.stringify(data)}</div>*/}
-      {data?.getDoctors?.map(item => (
+      {/* <div>{JSON.stringify(data)}</div> */}
+      {/* {data?.getDoctors?.map(item => (
         <div className="card mb-3 flex-row" key={item._id}>
           <div className="row no-gutters">
             <div className="col-auto">
@@ -44,7 +47,7 @@ const DashboardPatients = (props) => {
             </div>
           </div>
         </div>
-      ))}
+      ))} */}
       {/* HELP WITH THE GRAPHQL </div> */}
       
       <div style={dashboard.row}>
