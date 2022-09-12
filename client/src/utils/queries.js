@@ -1,7 +1,7 @@
 // import gql from 'graphql-tag';
 import { gql } from '@apollo/client';
 
-const getPatient = gql`
+/* const getPatient = gql`
 {
     me{
         firstName
@@ -30,28 +30,29 @@ const getPatient = gql`
         }
     }
 }`
+ */
 
-const GET_PATIENT_EMAIL_BY_ID = gql`
-    query GetPatientEmailByID ($_id: String!) {
-        getPatientEmailByID (_id: $_id) 
-        {
-            email
-            username
-            firstName
-            lastName
-            gender
-            appointments {
-                status
-            }
-            primarycareteam {
-                email
-            }
-            history{
-                allergies
-            }
-        }
-    }
-`
+// const GET_PATIENT_EMAIL_BY_ID = gql`
+//     query GetPatientEmailByID ($_id: String!) {
+//         getPatientEmailByID (_id: $_id) 
+//         {
+//             email
+//             username
+//             firstName
+//             lastName
+//             gender
+            // appointments {
+            //     status
+            // }
+            // primarycareteam {
+            //     email
+            // }
+            // history{
+            //     allergies
+            // }
+//         }
+//     }
+// `
 
 // const GET_PATIENT_EMAIL_BY_ID = gql`
 // query GetPatientEmailByID {
@@ -88,6 +89,26 @@ const GET_ALL_DOCTORS = gql`
         }
     }
 `
+const GET_PATIENT = gql `
+    query GetPatient($_id: String!){
+        getPatient(_id: $_id){
+            _id
+            username
+            email
+            firstName
+            lastName
+            appointments {
+                status
+            }
+            primarycareteam {
+                email
+            }
+            history{
+                allergies
+            }
+        }
+    }
+`
 
 
-export { getPatient, getDoctor, GET_ALL_DOCTORS, GET_PATIENT_EMAIL_BY_ID } 
+export { getDoctor, GET_ALL_DOCTORS, GET_PATIENT } 
