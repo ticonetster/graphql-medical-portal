@@ -14,34 +14,31 @@ A CMS-style user login portal, where patients can secure access to view personal
 
 ## Usage
 
-* To start using the application, use mySQL Workbench to setup the database and seed using files:
+* To start using the application, use MongoDB to setup the database and seed using files:
 
-      * [scheme.sql](./db/schema.sql)
-      * [seed.sql](./seeds/seed.sql)
+     npm run seed
 
-* The application is invoked by running `node server.js` in the command line  
-* Open a browser and navigate to <http://localhost:3001/>
+* The application is invoked by running `npm run develop` in the command line  
+* Open a browser and navigate to <http://localhost:3000/>
 * Shows the homepage to interact with the blog site.
 
 ## Demo and Links
 
-* [Heroku](https://medicalportalgroup2.herokuapp.com/)
-* [Github](https://github.com/ElliottLi97/Medical-Portal)
+* [Heroku](#)
+* [Github](https://github.com/ElliottLi97/turbo-giggle)
 
 ## Features
 
 * JavaScript
 * Node.js
-* MySQL
+* MongoDB
 * npm packages
   * bcrypt
   * connect-session-sequelize
   * dotenv
   * express
-  * express-handlebars
   * express-session
-  * mysql2
-  * sequelize
+  * mongoose
   * moment
   * socket.io
 
