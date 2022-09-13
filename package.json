@@ -26,9 +26,10 @@
   "homepage": "https://github.com/ElliottLi97/turbo-giggle#readme",
   "dependencies": {
     "if-env": "^1.0.4",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "concurrently": "^5.2.0"
   },
   "devDependencies": {
-    "concurrently": "^5.2.0"
+    
   }
 }
