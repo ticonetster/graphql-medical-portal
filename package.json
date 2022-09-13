@@ -9,7 +9,7 @@
     "develop": "concurrently \"npm run seed\" \"cd server && npm run watch\" \"cd client && npm start\"",
     "seed": "cd server && node seed/seed",
     "install": "cd server && npm i && cd ../client && npm i",
-    "heroku-postbuild": "cd client && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
