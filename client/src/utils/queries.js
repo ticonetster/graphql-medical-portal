@@ -42,13 +42,9 @@ const GET_PATIENT_EMAIL_BY_ID = gql`
             gender
             appointments {
                 status
-                concern
-                dateTime
             }
             primarycareteam {
                 email
-                firstName
-                lastName
             }
             history{
                 allergies
@@ -64,23 +60,6 @@ const GET_PATIENT_EMAIL_BY_ID = gql`
 //         email
 //     }
 // }
-
-const GET_DOCTOR_EMAIL_BY_ID = gql`
-    query GetDoctorEmailByID ($_id: String!) {
-        getDoctorEmailByID (_id: $_id) 
-        {
-            email
-            username
-            firstName
-            lastName
-            appointments {
-                status
-                concern
-                dateTime
-            }
-        }
-    }
-`
 
 const getDoctor = gql`
 {
@@ -123,4 +102,4 @@ const GET_PATIENT = gql `
 `
 
 
-export { getDoctor, GET_ALL_DOCTORS, GET_PATIENT_EMAIL_BY_ID, GET_PATIENT, GET_DOCTOR_EMAIL_BY_ID } 
+export { getDoctor, GET_ALL_DOCTORS, GET_PATIENT_EMAIL_BY_ID, GET_PATIENT } 
