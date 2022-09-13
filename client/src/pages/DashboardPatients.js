@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from "@apollo/client";
-import Auth from '../utils/auth';
 import { GET_PATIENT_EMAIL_BY_ID, GET_ALL_DOCTORS, GET_PATIENT } from '../utils/queries';
+import Auth from '../utils/auth';
 import ChatLogin from "./Chat/ChatLogin";
 import "../css/style.css";
 
@@ -11,21 +11,21 @@ import { dashboard, appointments, addappointments, history, edit, chatlogin, doc
 const DashboardPatients = (props) => {
   const userData = Auth.getProfile();
   const {loading: loadingDocs, error: DocError, data: doctorData} = useQuery(GET_ALL_DOCTORS);
-  const {loading:l, error:e, data:d} = useQuery(GET_PATIENT_EMAIL_BY_ID, {variables: { _id: userData.data._id }});
+  const {loading:l, error:e, data:d} = useQuery(GET_PATIENT_EMAIL_BY_ID, {variables: { _id: "631e424c632b1c3c14bd15f2" }});
   const {loading: loadingPatient, error: patientError, data: patientData} = useQuery(GET_PATIENT, {variables: {_id: userData.data._id}});
   console.log(loadingPatient,patientError,patientData, "JAVI")
   console.log(d,e, l, "ELLIOTT")
   
-  if (l) {
+  if (loadingDocs) {
     return <h2>LOADING...</h2>;
   }
-  //if (DocError) return `Error! ${DocError.message}`;
+  if (DocError) return `Error! ${DocError.message}`;
 
   return (
     <div style={dashboard.container}>
       <header style={dashboard.header}>
         <h1>
-          Welcome <strong>{d.getPatientEmailByID.firstName} {d.getPatientEmailByID.lastName}</strong>!
+          Welcome <strong>PATIENT NAME</strong>!
         </h1>
         <p>
           This is a secure medical portal to help connect and provide you with
@@ -68,7 +68,7 @@ const DashboardPatients = (props) => {
               <h5 className="card-title">
                 Upcoming Appointments
                 <a
-                  href="/appointments/signup"
+                  href="/makeAppointment"
                   className="edit-history-link-text"
                 >
                   <img
@@ -81,20 +81,20 @@ const DashboardPatients = (props) => {
                 </a>
               </h5>
               {/* Appointments  */}
-              {/* <strong>FOR EACH APPOINTMENT</strong> */}
+              <strong>FOR EACH APPOINTMENT</strong>
               <div
                 className="col-sm col-xs-12 appointmentcard"
                 style={dashboard.card}
               >
                 <p className="card-text">
-                  Dr. <strong>{d.getPatientEmailByID.primarycareteam[0].firstName} {d.getPatientEmailByID.primarycareteam[0].lastName} </strong> <br></br> at{" "}
-                  <strong>Tuesday September 13th 2:30 PM</strong>
+                  Dr. <strong>DOCTOR NAME</strong> <br></br> at{" "}
+                  <strong>APPOINTMENT DATE/TIME</strong>
                 </p>
                 <p className="card-text">
-                  Reason for visit: <strong>{d.getPatientEmailByID.appointments[0].concern}</strong>
+                  Reason for visit: <strong>APPOINTMENT CONCERN</strong>
                 </p>
                 <p className="card-text">
-                  <strong>{d.getPatientEmailByID.appointments[0].status}</strong>
+                  <strong>APPOINTMENT STATUS</strong>
                 </p>
               </div>
             </div>
@@ -115,20 +115,21 @@ const DashboardPatients = (props) => {
                     </a>
                   </h5>
                   <h6 className="card-subtitle mb-2 text-muted">
-                    Height: <strong>6' 2"</strong>
+                    Height: <strong>PATIENT HISTORY HEIGHT</strong>
                   </h6>
                   <h6 className="card-subtitle mb-2 text-muted">
-                    Weight: <strong>150 lbs</strong>
+                    Weight: <strong>PATIENT HISTORY WEIGHT</strong>
                   </h6>
                   <h6 className="card-subtitle mb-2 text-muted">
-                    Allergies: <strong>Diphenhydramine</strong>
+                    Allergies: <strong>PATIENT HISTORY ALLERGIES</strong>
                   </h6>
                   <h6 className="card-subtitle mb-2 text-muted">
-                    Current Medications:<strong>Benadryl</strong>
+                    Current Medications:{" "}
+                    <strong>PATIENT HISTORY MEDICATIONS</strong>
                   </h6>
-                  {/* <h6 className="card-subtitle mb-2 text-muted">
+                  <h6 className="card-subtitle mb-2 text-muted">
                     Prior History Data: <strong>PATIENT HISTORY DATA</strong>
-                  </h6> */}
+                  </h6>
                 </div>
               </div>
             </div>

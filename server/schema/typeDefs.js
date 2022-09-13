@@ -40,7 +40,6 @@ const typeDefs = gql`
         lastName: String
         username: String
         email: String
-        appointments: [Appointments]
     }
 
     type AuthDoctors {
@@ -64,7 +63,7 @@ const typeDefs = gql`
 
     type Query {
         getPatient(_id:String!): Patient
-        getDoctorEmailByID(_id: String!): Doctors
+
 
 
         test: String

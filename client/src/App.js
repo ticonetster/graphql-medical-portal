@@ -20,6 +20,7 @@ import Contact from "./pages/Contact";
 import History from "./pages/History";
 import ChatRoom from "./pages/Chat/ChatRoom";
 import ChatLogin from "./pages/Chat/ChatLogin";
+import makeAppointment from "./pages/makeAppointment";
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -58,6 +59,7 @@ function App() {
                     <Route exact path='/chatlogin' component={ChatLogin} />
                     <Route exact path='/chatroom' component={ChatRoom} />
                     <Route exact path="/history" component={History} />
+                    <Route exact path="/makeAppointment" component={makeAppointment} />
                     {/* <Route render={() => <h1 className='display-2'>Wrong page!</h1>} /> */}
                     {/* <Route index element={<Login />} /> */}
                     {/* <Route index element={<LoginPatients />} />
