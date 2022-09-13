@@ -45,7 +45,7 @@ const DashboardPatients = (props) => {
                 <h5 className="card-title">{item.firstName}, {item.lastName}</h5>
                 <h6 className="card-subtitle mb-2 text-muted">Type of Doctor</h6>
                 <p className="card-text">{item.email}</p>
-                <a href="#" className="card-link">Make an Appointment</a>
+                <a href={'/makeAppointmentForm?doctorId=' + item._id} className="card-link">Make an Appointment</a>
                 <a href="#" className="card-link">Message</a>
               </div>
             </div>
