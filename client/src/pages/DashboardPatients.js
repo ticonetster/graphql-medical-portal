@@ -68,7 +68,7 @@ const DashboardPatients = (props) => {
               <h5 className="card-title">
                 Upcoming Appointments
                 <a
-                  href="/appointments/signup"
+                  href="/makeAppointment"
                   className="edit-history-link-text"
                 >
                   <img
