@@ -1,5 +1,7 @@
 import React from "react";
-
+import { useQuery } from "@apollo/client";
+import Auth from '../utils/auth';
+import { GET_PATIENT_EMAIL_BY_ID, GET_ALL_DOCTORS, GET_PATIENT, GET_DOCTOR_EMAIL_BY_ID } from '../utils/queries';
 import "../css/style.css";
 
 import appointments from "../assets/appointments.png";

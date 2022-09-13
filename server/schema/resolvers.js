@@ -32,6 +32,15 @@ const resolvers = {
             }
 
             return patient
+        },        
+        getDoctorEmailByID: async (parent, { _id }) => {
+            const Doctor = await Doctors.findOne({ _id }).populate('appointments');
+
+            if (!Doctor) {
+                throw new AuthenticationError(` Doctor ID not found or invalid!`);
+            }
+
+            return Doctor
         },
         getPatient: async (parent, args, context, info) => {
             //if (context.request.patients){
