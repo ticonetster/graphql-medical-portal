@@ -116,7 +116,3 @@ a {
 .profileTitle {
     color: black !important;
 }
-.loggedInAs {
-    text-align: right;
-    font-size: 12px;
-}
