@@ -51,11 +51,17 @@ const styles = {
 };
 
 const DashboardDoctors = (props) => {
+  const userData = Auth.getProfile();
+  const {loading:l, error:e, data:d} = useQuery(GET_DOCTOR_EMAIL_BY_ID, {variables: { _id: userData.data._id }});
+  console.log(d,e, l, "ELLIOTT")
+  if (l) {
+    return <h2>LOADING...</h2>;
+  }
     return (
         <div style={styles.container}>
       {/* HELP WITH THE GRAPHQL </div> */}
       <h2>
-        Welcome <strong>DOCTOR NAME</strong>
+        Welcome Dr. <strong>{d.getDoctorEmailByID.firstName} {d.getDoctorEmailByID.lastName}</strong>
       </h2>
       <br></br>
       <p>
@@ -85,17 +91,18 @@ const DashboardDoctors = (props) => {
             </h5>
 
             {/* Appointments  */}
-            <strong>FOR EACH APPOINTMENT</strong>
+            {/* <strong>FOR EACH APPOINTMENT</strong> */}
             <div className="col-sm col-xs-12 appointmentcard" style={styles.card}>
               <p className="card-text">
-                    <strong>PATIENT NAME</strong> <br></br> at{" "}
-                <strong>APPOINTMENT DATE/TIME</strong>
+                    With <strong>TEST</strong> 
+                    <br></br>                    <br></br>
+                    at{" "}<strong>Tuesday September 13th 4:30 PM</strong>
               </p>
               <p className="card-text">
-                Reason for visit: <strong>APPOINTMENT CONCERN</strong>
+                Reason for visit: <strong>{d.getDoctorEmailByID.appointments[0].concern}</strong>
               </p>
               <p className="card-text">
-                <strong>APPOINTMENT STATUS</strong>
+                Status: <strong>{d.getDoctorEmailByID.appointments[0].status}</strong>
               </p>
             </div>
 
